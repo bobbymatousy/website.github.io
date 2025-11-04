@@ -1,63 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About — Alan Suleimanov</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-    <style>
-      body {
-        background-color: #0d0d0f;
-        color: #dcdcdc;
-        font-family: 'JetBrains Mono', monospace;
-        padding: 3rem 1.5rem;
-        line-height: 1.8;
-      }
-      a { color: #00f5ff; transition: 0.2s; }
-      a:hover { color: #b3ffff; }
-      .title { font-size: 1.5rem; font-weight: 600; color: #fff; margin-bottom: 1rem; }
-      .nav { margin-bottom: 3rem; color: #777; }
-      .nav a { margin: 0 0.6rem; color: #999; }
-      .nav a:hover { color: #00f5ff; }
-      .divider { border-top: 1px solid #1a1a1d; margin: 2rem 0; }
-      footer { margin-top: 3rem; font-size: 0.9rem; color: #555; }
-    </style>
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Alan Suleimanov</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body { font-family: 'JetBrains Mono', monospace; transition: background .3s, color .3s; padding: 3rem 1.5rem; }
+    body.light { background: #fff; color: #111; }
+    body.dark { background: #0f0f0f; color: #e2e2e2; }
+    a { color: #007acc; } body.dark a { color: #5cd3ff; }
+    .title { font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; }
+    .toggle-btn { border: 1px solid #aaa; padding: .4rem .8rem; border-radius: 8px; cursor: pointer; }
+  </style>
+</head>
 
-  <body class="max-w-2xl mx-auto">
-    <div class="title">◆ Alan Suleimanov</div>
+<body class="light max-w-2xl mx-auto">
+  <div class="flex justify-between items-center mb-6">
+    <div class="title">◆ About</div>
+    <button class="toggle-btn" id="themeToggle">Dark mode</button>
+  </div>
 
-    <div class="nav">
-      <a href="index.html">Home</a> |
-      <a href="projects.html">Projects</a> |
-      <a href="about.html" class="text-white">About</a> |
-      <a href="photography.html">Photography</a> |
-      <a href="contact.html">Contact</a>
-    </div>
+  <div class="nav mb-6">
+    <a href="index.html">Home</a> |
+    <a href="projects.html">Projects</a> |
+    <a href="about.html" class="font-semibold">About</a> |
+    <a href="portfolio.html">Portfolio</a> |
+    <a href="contact.html">Contact</a>
+  </div>
 
-    <p>↳ Based in <b>Ontario</b>, Canada.</p>
-    <p>↳ Studying <b>Computer Science</b> and <b>Finance</b>.</p>
-    <p>↳ Passionate about <b>data-driven strategy</b>, <b>AI systems</b>, and <b>markets</b>.</p>
-    <p>↳ Founder of multiple analytical projects focused on automation and intelligent decision support.</p>
-    <p>↳ Experienced in consulting, software development, and quantitative research.</p>
-    <p>↳ Interested in bridging technology and finance — from algorithmic systems to real-world investment impact.</p>
-    <p>↳ My favorite creative outlet is <b>photography</b>.</p>
-    <p>↳ Favorite sport: <b>kickboxing</b> and <b>boxing</b>.</p>
+  <p>↳ Based in Ontario, Canada.</p>
+  <p>↳ Studying Computer Science at Western University.</p>
+  <p>↳ Professional background in finance, consulting, and technology.</p>
+  <p>↳ Experienced with Databricks, Python, and quantitative systems.</p>
+  <p>↳ Passionate about markets, data, and long-term value creation.</p>
+  <p>↳ Outside work: photography, kickboxing, and travel.</p>
 
-    <div class="divider"></div>
+  <footer class="mt-6 text-sm text-gray-500">© <span id="year"></span> Alan Suleimanov</footer>
 
-    <p>◆ Contact:</p>
-    <p>
-      <a href="mailto:alan.a.suleimanov@gmail.com">Email</a> |
-      <a href="https://github.com/GroovieYT" target="_blank">GitHub</a> |
-      <a href="https://linkedin.com/in/alan-suleimanov" target="_blank">LinkedIn</a> |
-      <a href="https://x.com" target="_blank">X</a>
-    </p>
-
-    <footer>© <span id="year"></span> Alan Suleimanov</footer>
-
-    <script>
-      document.getElementById('year').innerText = new Date().getFullYear();
-    </script>
-  </body>
+  <script>
+    document.getElementById('year').innerText = new Date().getFullYear();
+    const toggleBtn = document.getElementById('themeToggle');
+    const body = document.body;
+    if (localStorage.getItem('theme') === 'dark') body.classList.replace('light', 'dark');
+    toggleBtn.addEventListener('click', () => {
+      if (body.classList.contains('light')) { body.classList.replace('light', 'dark'); localStorage.setItem('theme', 'dark'); }
+      else { body.classList.replace('dark', 'light'); localStorage.setItem('theme', 'light'); }
+    });
+  </script>
+</body>
 </html>
