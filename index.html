@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alan Suleimanov</title>
+    <title>Alan Suleimanov — Portfolio</title>
     <link
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
@@ -37,67 +37,71 @@
         transform: translateY(-2px);
         transition: 0.3s;
       }
+      .card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(12px);
+        border-radius: 20px;
+        padding: 1.5rem;
+        transition: 0.3s;
+      }
+      .card:hover {
+        transform: translateY(-4px);
+        border-color: #00f5ff;
+        box-shadow: 0 0 20px rgba(0, 245, 255, 0.2);
+      }
     </style>
   </head>
 
-  <body class="flex flex-col justify-center items-center text-center px-4">
-    <!-- Hero Section -->
-    <section class="flex flex-col justify-center items-center h-screen">
-      <h1 class="text-5xl md:text-7xl font-bold mb-4 glow">
-        Alan Suleimanov
-      </h1>
-      <p class="text-xl md:text-2xl text-gray-300 mb-8">
-        CS @ UWestern • Founder • MMA Enthusiast
-      </p>
+  <body class="flex flex-col justify-center items-center px-6 py-12">
+    <main class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+      <!-- Left Column: Hero + About -->
+      <div>
+        <h1 class="text-5xl md:text-6xl font-bold mb-4 glow">
+          Alan Suleimanov
+        </h1>
+        <p class="text-lg md:text-xl text-gray-300 mb-6">
+          CS @ Western University • Quantitative Analyst Intern • Software Engineer
+        </p>
 
-      <div class="flex space-x-6">
-        <a
-          href="https://github.com/GroovieYT"
-          target="_blank"
-          class="social-icon"
-        >
-          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/github.svg" width="28" />
-        </a>
-        <a
-          href="https://linkedin.com/in/alan-suleimanov"
-          target="_blank"
-          class="social-icon"
-        >
-          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/linkedin.svg" width="28" />
-        </a>
-        <a
-          href="https://x.com/"
-          target="_blank"
-          class="social-icon"
-        >
-          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/x.svg" width="28" />
-        </a>
-        <a
-          href="mailto:alan@alansuleimanov.tech"
-          class="social-icon"
-        >
-          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/gmail.svg" width="28" />
-        </a>
+        <p class="text-gray-400 leading-relaxed mb-8">
+          I’m an Honours Computer Science student at Western University (Canada, GPA 3.9/4.0),
+          passionate about data-driven engineering and quantitative finance.
+          My experience spans building large-scale data systems at <b>SAP</b> and <b>PwC</b>,
+          and developing quantitative tools for the <b>Clearstream team at Deutsche Börse</b>.
+          I love combining mathematics, software design, and markets to create practical, high-impact solutions.
+        </p>
+
+        <div class="flex space-x-6">
+          <a href="https://github.com/GroovieYT" target="_blank" class="social-icon">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/github.svg" width="28" />
+          </a>
+          <a href="https://linkedin.com/in/alan-suleimanov" target="_blank" class="social-icon">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/linkedin.svg" width="28" />
+          </a>
+          <a href="mailto:alan.a.suleimanov@gmail.com" class="social-icon">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/gmail.svg" width="28" />
+          </a>
+        </div>
       </div>
 
-      <div class="mt-16 animate-bounce text-gray-400">
-        ↓ Scroll to learn more ↓
+      <!-- Right Column: Stock Portfolio Card -->
+      <div class="card text-gray-200">
+        <h2 class="text-2xl font-semibold mb-4 glow">Live Portfolio Snapshot</h2>
+        <ul id="portfolio" class="space-y-2 text-gray-300">
+          <li>NVDA — +2.45%</li>
+          <li>TSLA — −1.12%</li>
+          <li>AMZN — +0.78%</li>
+          <li>AAPL — +0.35%</li>
+          <li>GOOG — +1.04%</li>
+        </ul>
+        <p class="mt-6 text-sm text-gray-400">
+          *Data updates daily (prototype). API integration coming soon.
+        </p>
       </div>
-    </section>
+    </main>
 
-    <!-- About Section -->
-    <section class="py-20 max-w-3xl">
-      <h2 class="text-3xl font-bold mb-6 glow">About Me</h2>
-      <p class="text-gray-300 leading-relaxed text-lg">
-        I’m a computer science student at the University of Western, deeply
-        passionate about technology, entrepreneurship, and personal growth. I
-        love building products that challenge limits and combining logic with
-        creativity from startups to combat sports.
-      </p>
-    </section>
-
-    <!-- Footer -->
-    <footer class="mt-20 py-6 text-gray-500 text-sm">
+    <footer class="mt-16 py-6 text-gray-500 text-sm text-center">
       © <span id="year"></span> Alan Suleimanov. All rights reserved.
     </footer>
 
