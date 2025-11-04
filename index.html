@@ -12,79 +12,25 @@
         line-height: 1.8;
         padding: 3rem 1.5rem;
       }
-
-      /* Light mode defaults */
-      body.light {
-        background-color: #ffffff;
-        color: #111111;
-      }
-
-      /* Dark mode styling */
-      body.dark {
-        background-color: #0f0f0f;
-        color: #e2e2e2;
-      }
-
-      a {
-        color: #007acc;
-        transition: color 0.2s;
-      }
-
-      body.dark a {
-        color: #5cd3ff;
-      }
-
-      a:hover {
-        text-decoration: underline;
-      }
-
-      .title {
-        font-size: 1.6rem;
-        font-weight: 600;
-        margin-bottom: 1rem;
-      }
-
-      .nav {
-        margin-bottom: 3rem;
-        color: #555;
-      }
-
-      .nav a {
-        margin: 0 0.6rem;
-      }
-
-      .divider {
-        border-top: 1px solid #ddd;
-        margin: 2rem 0;
-      }
-
-      body.dark .divider {
-        border-top: 1px solid #1c1c1d;
-      }
-
-      footer {
-        margin-top: 3rem;
-        font-size: 0.85rem;
-        color: #555;
-      }
-
+      body.light { background-color: #ffffff; color: #111; }
+      body.dark { background-color: #0f0f0f; color: #e2e2e2; }
+      a { color: #007acc; transition: 0.2s; }
+      body.dark a { color: #5cd3ff; }
+      .title { font-size: 1.6rem; font-weight: 600; margin-bottom: 1rem; }
+      .nav { margin-bottom: 3rem; color: #777; }
+      .nav a { margin: 0 0.6rem; color: #777; }
+      .divider { border-top: 1px solid #ddd; margin: 2rem 0; }
+      body.dark .divider { border-top: 1px solid #1c1c1d; }
       .toggle-btn {
         border: 1px solid #aaa;
         padding: 0.4rem 0.8rem;
         border-radius: 8px;
-        font-size: 0.9rem;
         cursor: pointer;
         background-color: transparent;
-        transition: all 0.2s;
+        font-size: 0.9rem;
       }
-
-      .toggle-btn:hover {
-        background-color: #f5f5f5;
-      }
-
-      body.dark .toggle-btn:hover {
-        background-color: #222;
-      }
+      .toggle-btn:hover { background-color: #f5f5f5; }
+      body.dark .toggle-btn:hover { background-color: #222; }
     </style>
   </head>
 
@@ -98,14 +44,13 @@
       <a href="index.html" class="font-semibold">Home</a> |
       <a href="projects.html">Projects</a> |
       <a href="about.html">About</a> |
-      <a href="photography.html">Photography</a> |
+      <a href="portfolio.html">Portfolio</a> |
       <a href="contact.html">Contact</a>
     </div>
 
     <p>↳ Honours Computer Science at Western University.</p>
     <p>↳ Quantitative Analyst at <b>Deutsche Börse Group</b>.</p>
-    <p>↳ Former Software Engineer Intern at <b>SAP Labs Bucharest</b> and Data Analysis Intern at <b>PWC</b>.</p>
-    <p>↳ Co-Founder at <b>Sera AI</b>, building scalable voice intelligence for business.</p>
+    <p>↳ Former Software Engineer Intern at <b>SAP Labs</b> and Data Analyst at <b>PWC</b>.</p>
     <p>↳ Focused on AI systems, data infrastructure, and quantitative finance.</p>
 
     <div class="divider"></div>
@@ -121,19 +66,13 @@
     <footer>© <span id="year"></span> Alan Suleimanov</footer>
 
     <script>
-      // Update year dynamically
       document.getElementById('year').innerText = new Date().getFullYear();
-
-      // Theme toggle
       const toggleBtn = document.getElementById('themeToggle');
       const body = document.body;
-
-      // Load previous theme preference
       if (localStorage.getItem('theme') === 'dark') {
         body.classList.replace('light', 'dark');
         toggleBtn.textContent = 'Light mode';
       }
-
       toggleBtn.addEventListener('click', () => {
         if (body.classList.contains('light')) {
           body.classList.replace('light', 'dark');
@@ -143,3 +82,8 @@
           body.classList.replace('dark', 'light');
           toggleBtn.textContent = 'Dark mode';
           localStorage.setItem('theme', 'light');
+        }
+      });
+    </script>
+  </body>
+</html>
