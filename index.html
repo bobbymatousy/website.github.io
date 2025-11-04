@@ -3,86 +3,58 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alan Suleimanov — Portfolio</title>
+    <title>Alan Suleimanov</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
     <style>
       body {
-        background: linear-gradient(-45deg, #0e0e10, #1a1b29, #111827, #0f172a);
-        background-size: 400% 400%;
-        animation: gradient 12s ease infinite;
-        color: white;
-        font-family: "Poppins", sans-serif;
-        min-height: 100vh;
+        background-color: #0f0f0f;
+        color: #dcdcdc;
+        font-family: 'JetBrains Mono', monospace;
+        padding: 3rem 1.5rem;
+        line-height: 1.8;
       }
-      @keyframes gradient {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-      }
-      .glow { text-shadow: 0 0 10px #00f5ff, 0 0 20px #00f5ff; }
-      .nav-link { margin: 0 1rem; color: #ccc; transition: 0.3s; }
-      .nav-link:hover { color: #00f5ff; text-shadow: 0 0 8px #00f5ff; }
-      .card {
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(12px);
-        border-radius: 20px;
-        padding: 1.5rem;
-        transition: 0.3s;
-      }
-      .card:hover {
-        transform: translateY(-4px);
-        border-color: #00f5ff;
-        box-shadow: 0 0 20px rgba(0, 245, 255, 0.2);
-      }
+      a { color: #00b8d9; transition: 0.2s; }
+      a:hover { color: #80e6ff; }
+      .title { font-size: 1.5rem; font-weight: 600; color: #fff; margin-bottom: 1rem; }
+      .nav { margin-bottom: 3rem; color: #777; }
+      .nav a { margin: 0 0.6rem; color: #999; }
+      .nav a:hover { color: #00b8d9; }
+      .divider { border-top: 1px solid #1c1c1c; margin: 2rem 0; }
+      footer { margin-top: 3rem; font-size: 0.85rem; color: #555; }
     </style>
   </head>
 
-  <body class="flex flex-col items-center px-6 py-8">
-    <!-- NAVBAR -->
-    <nav class="w-full max-w-5xl flex justify-center mb-10 text-lg">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="projects.html" class="nav-link">Projects</a>
-      <a href="about.html" class="nav-link">About</a>
-      <a href="photography.html" class="nav-link">Photography</a>
-      <a href="contact.html" class="nav-link">Contact</a>
-    </nav>
+  <body class="max-w-2xl mx-auto">
+    <div class="title">◆ Alan Suleimanov</div>
 
-    <!-- HERO SECTION -->
-    <main class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-      <div>
-        <h1 class="text-5xl md:text-6xl font-bold mb-4 glow">Alan Suleimanov</h1>
-        <p class="text-lg md:text-xl text-gray-300 mb-6">
-          CS @ Western University • Quantitative Analyst Intern • Software Engineer
-        </p>
-        <p class="text-gray-400 leading-relaxed mb-8">
-          I’m an Honours Computer Science student at Western University (GPA 3.9/4.0),
-          passionate about data-driven engineering and quantitative finance.
-          Experienced in building scalable systems at <b>SAP</b> and <b>PwC</b>,
-          and developing tools for the <b>Clearstream</b> team at <b>Deutsche Börse</b>.
-        </p>
-      </div>
+    <div class="nav">
+      <a href="index.html" class="text-white">Home</a> |
+      <a href="projects.html">Projects</a> |
+      <a href="about.html">About</a> |
+      <a href="photography.html">Photography</a> |
+      <a href="contact.html">Contact</a>
+    </div>
 
-      <!-- Portfolio Card -->
-      <div class="card text-gray-200">
-        <h2 class="text-2xl font-semibold mb-4 glow">Live Portfolio Snapshot</h2>
-        <ul id="portfolio" class="space-y-2 text-gray-300">
-          <li>NVDA — +2.45%</li>
-          <li>TSLA — −1.12%</li>
-          <li>AMZN — +0.78%</li>
-          <li>AAPL — +0.35%</li>
-          <li>GOOG — +1.04%</li>
-        </ul>
-        <p class="mt-6 text-sm text-gray-400">*Data updates daily (prototype).</p>
-      </div>
-    </main>
+    <p>↳ Group Director, Decarbonization at Rompetrol | KMG International.</p>
+    <p>↳ Focused on renewable energy, hydrogen, and sustainable fuels.</p>
+    <p>↳ Background in strategy, consulting, and technology.</p>
+    <p>↳ Experienced in cross-sector leadership between energy and finance.</p>
+    <p>↳ Currently developing projects in SAF, HVO, and CCS.</p>
 
-    <footer class="mt-16 py-6 text-gray-500 text-sm text-center">
-      © <span id="year"></span> Alan Suleimanov. All rights reserved.
-    </footer>
+    <div class="divider"></div>
+
+    <p>◆ Contact:</p>
+    <p>
+      <a href="mailto:alan.a.suleimanov@gmail.com">Email</a> |
+      <a href="https://github.com/GroovieYT" target="_blank">GitHub</a> |
+      <a href="https://linkedin.com/in/alan-suleimanov" target="_blank">LinkedIn</a> |
+      <a href="https://x.com" target="_blank">X</a>
+    </p>
+
+    <footer>© <span id="year"></span> Alan Suleimanov</footer>
 
     <script>
-      document.getElementById("year").innerText = new Date().getFullYear();
+      document.getElementById('year').innerText = new Date().getFullYear();
     </script>
   </body>
 </html>
