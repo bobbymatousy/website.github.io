@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alan Suleimanov</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background: linear-gradient(-45deg, #0e0e10, #1a1b29, #111827, #0f172a);
+        background-size: 400% 400%;
+        animation: gradient 12s ease infinite;
+        color: white;
+        font-family: "Poppins", sans-serif;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+      @keyframes gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+      .glow {
+        text-shadow: 0 0 10px #00f5ff, 0 0 20px #00f5ff;
+      }
+      .social-icon:hover {
+        filter: drop-shadow(0 0 8px #00f5ff);
+        transform: translateY(-2px);
+        transition: 0.3s;
+      }
+    </style>
+  </head>
+
+  <body class="flex flex-col justify-center items-center text-center px-4">
+    <!-- Hero Section -->
+    <section class="flex flex-col justify-center items-center h-screen">
+      <h1 class="text-5xl md:text-7xl font-bold mb-4 glow">
+        Alan Suleimanov
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-300 mb-8">
+        CS @ UWestern • Founder • MMA Enthusiast
+      </p>
+
+      <div class="flex space-x-6">
+        <a
+          href="https://github.com/GroovieYT"
+          target="_blank"
+          class="social-icon"
+        >
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/github.svg" width="28" />
+        </a>
+        <a
+          href="https://linkedin.com/in/alan-suleimanov"
+          target="_blank"
+          class="social-icon"
+        >
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/linkedin.svg" width="28" />
+        </a>
+        <a
+          href="https://x.com/"
+          target="_blank"
+          class="social-icon"
+        >
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/x.svg" width="28" />
+        </a>
+        <a
+          href="mailto:alan@alansuleimanov.tech"
+          class="social-icon"
+        >
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/gmail.svg" width="28" />
+        </a>
+      </div>
+
+      <div class="mt-16 animate-bounce text-gray-400">
+        ↓ Scroll to learn more ↓
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-20 max-w-3xl">
+      <h2 class="text-3xl font-bold mb-6 glow">About Me</h2>
+      <p class="text-gray-300 leading-relaxed text-lg">
+        I’m a computer science student at the University of Western, deeply
+        passionate about technology, entrepreneurship, and personal growth. I
+        love building products that challenge limits and combining logic with
+        creativity from startups to combat sports.
+      </p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-20 py-6 text-gray-500 text-sm">
+      © <span id="year"></span> Alan Suleimanov. All rights reserved.
+    </footer>
+
+    <script>
+      document.getElementById("year").innerText = new Date().getFullYear();
+    </script>
+  </body>
+</html>
