@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio — Alan Suleimanov</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <style>
+      body {
+        font-family: 'JetBrains Mono', monospace;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        line-height: 1.8;
+        padding: 3rem 1.5rem;
+      }
+      body.light { background-color: #fff; color: #111; }
+      body.dark { background-color: #0f0f0f; color: #e2e2e2; }
+
+      a { color: #007acc; }
+      body.dark a { color: #5cd3ff; }
+
+      .title { font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; }
+      .nav { margin-bottom: 3rem; color: #777; }
+      .nav a { margin: 0 0.6rem; color: #777; }
+      .divider { border-top: 1px solid #ddd; margin: 2rem 0; }
+      body.dark .divider { border-top: 1px solid #1c1c1d; }
+
+      .toggle-btn {
+        border: 1px solid #aaa;
+        padding: 0.4rem 0.8rem;
+        border-radius: 8px;
+        cursor: pointer;
+        background-color: transparent;
+        font-size: 0.9rem;
+      }
+      .toggle-btn:hover { background-color: #f5f5f5; }
+      body.dark .toggle-btn:hover { background-color: #222; }
+
+      table { width: 100%; border-collapse: collapse; margin-top: 2rem; }
+      th, td { padding: 0.8rem; border-bottom: 1px solid #e1e1e1; text-align: left; }
+      body.dark th, body.dark td { border-bottom: 1px solid #333; }
+      th { color: #555; }
+      body.dark th { color: #aaa; }
+
+      .gain { color: #009900; }
+      .loss { color: #cc0000; }
+    </style>
+  </head>
+
+  <body class="light max-w-3xl mx-auto">
+    <div class="flex justify-between items-center mb-6">
+      <div class="title">◆ Alan Suleimanov — Portfolio</div>
+      <button class="toggle-btn" id="themeToggle">Dark mode</button>
+    </div>
+
+    <div class="nav">
+      <a href="index.html">Home</a> |
+      <a href="projects.html">Projects</a> |
+      <a href="about.html">About</a> |
+      <a href="portfolio.html" class="font-semibold">Portfolio</a> |
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <h2 class="text-lg font-semibold mb-4">📈 My Live Stock Portfolio</h2>
+    <p>This dashboard updates automatically every 30 seconds with live prices.</p>
+
+    <table id="portfolioTable">
+      <thead>
+        <tr>
+          <th>Ticker</th>
+          <th>Company</th>
+          <th>Shares</th>
+          <th>Price (USD)</th>
+          <th>Change</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Dynamic data here -->
+      </tbody>
+    </table>
+
+    <div class="divider"></div>
+    <footer>© <span id="year"></span> Alan Suleimanov</footer>
+
+    <script>
+      document.getElementById('year').innerText = new Date().getFullYear();
+
+      // Dark mode toggle
+      const toggleBtn = document.getElementById('themeToggle');
+      const body = document.body;
+      if (localStorage.getItem('theme') === 'dark') {
+        body.classList.replace('light', 'dark');
+        toggleBtn.textContent = 'Light mode';
+      }
+      toggleBtn.addEventListener('click', () => {
+        if (body.classList.contains('light')) {
+          body.classList.replace('light', 'dark');
+          toggleBtn.textContent = 'Light mode';
+          localStorage.setItem('theme', 'dark');
+        } else {
+          body.classList.replace('dark', 'light');
+          toggleBtn.textContent = 'Dark mode';
+          localStorage.setItem('theme', 'light');
+        }
+      });
+
+      // --- STOCK DATA ---
+      const holdings = [
+        { symbol: "AAPL", name: "Apple Inc.", shares: 25 },
+        { symbol: "NVDA", name: "NVIDIA Corp.", shares: 10 },
+        { symbol: "TSLA", name: "Tesla Inc.", shares: 15 },
+        { symbol: "MSFT", name: "Microsoft Corp.", shares: 12 }
+      ];
+
+      async function updatePortfolio() {
+        const tbody = document.querySelector("#portfolioTable tbody");
+        tbody.innerHTML = "";
+
+        for (const stock of holdings) {
+          try {
+            const res = await fetch(`https://query1.finance.yahoo.com/v7/finance/quote?symbols=${stock.symbol}`);
+            const data = await res.json();
+            const quote = data.quoteResponse.result[0];
+            const price = quote.regularMarketPrice;
+            const change = quote.regularMarketChangePercent.toFixed(2);
+            const value = (price * stock.shares).toFixed(2);
+
+            const row = document.createElement("tr");
+            row.innerHTML = `
+              <td>${stock.symbol}</td>
+              <td>${stock.name}</td>
+              <td>${stock.shares}</td>
+              <td>$${price.toFixed(2)}</td>
+              <td class="${change >= 0 ? 'gain' : 'loss'}">${change}%</td>
+              <td>$${value}</td>
+            `;
+            tbody.appendChild(row);
+          } catch (e) {
+            console.error("Error fetching data for", stock.symbol);
+          }
+        }
+      }
+
+      updatePortfolio();
+      setInterval(updatePortfolio, 30000); // auto-refresh every 30 sec
+    </script>
+  </body>
+</html>
