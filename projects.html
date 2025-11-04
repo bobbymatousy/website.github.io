@@ -4,128 +4,51 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projects — Alan Suleimanov</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
     <style>
-      body {
-        background: linear-gradient(-45deg, #0e0e10, #1a1b29, #111827, #0f172a);
-        background-size: 400% 400%;
-        animation: gradient 12s ease infinite;
-        color: white;
-        font-family: "Poppins", sans-serif;
-        min-height: 100vh;
-      }
-      @keyframes gradient {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-      }
-      .glow { text-shadow: 0 0 10px #00f5ff, 0 0 20px #00f5ff; }
-      .nav-link { margin: 0 1rem; color: #ccc; transition: 0.3s; }
-      .nav-link:hover { color: #00f5ff; text-shadow: 0 0 8px #00f5ff; }
-      .card {
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(12px);
-        border-radius: 20px;
-        padding: 2rem;
-        transition: 0.3s;
-      }
-      .card:hover {
-        transform: translateY(-4px);
-        border-color: #00f5ff;
-        box-shadow: 0 0 20px rgba(0, 245, 255, 0.15);
-      }
-      .btn {
-        display: inline-block;
-        margin-top: 1rem;
-        background-color: #00f5ff;
-        color: #000;
-        font-weight: 500;
-        padding: 0.4rem 1rem;
-        border-radius: 10px;
-        transition: 0.3s;
-      }
-      .btn:hover {
-        background-color: #02b9c7;
-      }
+      body { font-family: 'JetBrains Mono', monospace; transition: background 0.3s, color 0.3s; padding: 3rem 1.5rem; }
+      body.light { background: #fff; color: #111; }
+      body.dark { background: #0f0f0f; color: #e2e2e2; }
+      a { color: #007acc; } body.dark a { color: #5cd3ff; }
+      .title { font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; }
+      .divider { border-top: 1px solid #ddd; margin: 2rem 0; }
+      body.dark .divider { border-top: 1px solid #1c1c1d; }
+      .toggle-btn { border: 1px solid #aaa; padding: 0.4rem 0.8rem; border-radius: 8px; cursor: pointer; }
     </style>
   </head>
 
-  <body class="flex flex-col items-center px-6 py-10">
-    <!-- NAVBAR -->
-    <nav class="w-full max-w-5xl flex justify-center mb-12 text-lg">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="projects.html" class="nav-link text-white font-semibold">Projects</a>
-      <a href="about.html" class="nav-link">About</a>
-      <a href="photography.html" class="nav-link">Photography</a>
-      <a href="contact.html" class="nav-link">Contact</a>
-    </nav>
+  <body class="light max-w-2xl mx-auto">
+    <div class="flex justify-between items-center mb-6">
+      <div class="title">◆ Projects</div>
+      <button class="toggle-btn" id="themeToggle">Dark mode</button>
+    </div>
 
-    <!-- PROJECTS SECTION -->
-    <main class="max-w-5xl mx-auto space-y-10 text-gray-300">
-      <section>
-        <h1 class="text-5xl font-bold mb-4 glow">Projects</h1>
-        <p class="text-lg text-gray-400 mb-10">
-          A selection of my technical and analytical work — focused on data, AI, and finance.
-        </p>
-      </section>
+    <div class="nav mb-6">
+      <a href="index.html">Home</a> |
+      <a href="projects.html" class="font-semibold">Projects</a> |
+      <a href="about.html">About</a> |
+      <a href="portfolio.html">Portfolio</a> |
+      <a href="contact.html">Contact</a>
+    </div>
 
-      <!-- Project Cards -->
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="card">
-          <h2 class="text-2xl font-semibold mb-2 glow">AI-Powered Diabetic Retinopathy Detection</h2>
-          <p>
-            Developed a convolutional neural network to classify retinal images by disease stage
-            using TensorFlow and OpenCV. Achieved over 90% accuracy on Kaggle dataset through
-            augmentation and optimized preprocessing.
-          </p>
-          <a href="#" target="_blank" class="btn">View Code</a>
-        </div>
+    <p>↳ <b>Sera AI</b> — Co-Founder. Developing scalable voice intelligence and natural language automation.</p>
+    <p>↳ <b>MarketPulse</b> — Automated Python dashboard for real-time equity tracking using Yahoo Finance API.</p>
+    <p>↳ <b>Credit Risk ML</b> — Built credit risk classifier (XGBoost) trained on 1M+ rows of banking data.</p>
+    <p>↳ <b>Rompetrol Decarbonization Strategy</b> — Led modelling for €300M SAF & Hydrogen investment.</p>
+    <p>↳ <b>Databricks Automation</b> — Designed production pipeline for KMG using PySpark and MLflow.</p>
 
-        <div class="card">
-          <h2 class="text-2xl font-semibold mb-2 glow">Portfolio Analytics & Stock Tracker</h2>
-          <p>
-            Built a Python dashboard leveraging APIs to visualize stock performance, sector
-            exposure, and volatility metrics. Integrated daily Yahoo Finance data for dynamic
-            portfolio tracking and real-time insights.
-          </p>
-          <a href="#" target="_blank" class="btn">View Demo</a>
-        </div>
-
-        <div class="card">
-          <h2 class="text-2xl font-semibold mb-2 glow">C++ ASCII Game Engine</h2>
-          <p>
-            Created a lightweight C++ game framework to render 2D ASCII environments in terminal.
-            Implemented physics simulation, sprite animations, and modular scripting support.
-          </p>
-          <a href="#" target="_blank" class="btn">Source</a>
-        </div>
-
-        <div class="card">
-          <h2 class="text-2xl font-semibold mb-2 glow">Process Automation Dashboard — PwC</h2>
-          <p>
-            Built data visualization and automation tools to optimize internal workflows and client
-            KPI reporting. Integrated REST APIs and Excel macros to streamline repetitive analysis
-            tasks.
-          </p>
-          <a href="#" target="_blank" class="btn">Confidential</a>
-        </div>
-      </div>
-
-      <section class="mt-10">
-        <a href="index.html" class="text-blue-400 hover:text-blue-300 transition">← Back to Home</a>
-      </section>
-    </main>
-
-    <footer class="mt-16 py-6 text-gray-500 text-sm text-center">
-      © <span id="year"></span> Alan Suleimanov. All rights reserved.
-    </footer>
+    <div class="divider"></div>
+    <footer>© <span id="year"></span> Alan Suleimanov</footer>
 
     <script>
-      document.getElementById("year").innerText = new Date().getFullYear();
+      document.getElementById('year').innerText = new Date().getFullYear();
+      const toggleBtn = document.getElementById('themeToggle');
+      const body = document.body;
+      if (localStorage.getItem('theme') === 'dark') body.classList.replace('light', 'dark');
+      toggleBtn.addEventListener('click', () => {
+        if (body.classList.contains('light')) { body.classList.replace('light', 'dark'); localStorage.setItem('theme', 'dark'); }
+        else { body.classList.replace('dark', 'light'); localStorage.setItem('theme', 'light'); }
+      });
     </script>
   </body>
 </html>
