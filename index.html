@@ -10,7 +10,10 @@
   <meta property="og:description" content="Second-generation renewable feedstock supply focused on intermediate crops for advanced biofuels." />
   <meta property="og:type" content="website" />
 
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <!-- Use your logo as the browser tab icon -->
+  <link rel="icon" href="assets/images/logo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/images/logo.png" />
+
   <link rel="stylesheet" href="assets/css/irmin.css" />
   <script defer src="assets/js/irmin.js"></script>
 </head>
@@ -20,8 +23,13 @@
 
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="Irmin Tech home">
-        <span class="brand-mark" aria-hidden="true"></span>
+      <!-- Brand with logo -->
+      <a class="brand" href="index.html" aria-label="Irmin Tech home" style="gap:12px;">
+        <img
+          src="assets/images/logo.png"
+          alt="Irmin Tech"
+          style="height:30px;width:auto;border-radius:10px;display:block;"
+        />
         <span>Irmin Tech</span>
       </a>
 
@@ -217,7 +225,7 @@
       </div>
     </section>
 
-    <!-- WHERE WE OPERATE (uses hero image as fallback until you upload the 3 location photos) -->
+    <!-- WHERE WE OPERATE -->
     <section class="section">
       <div class="container">
         <div class="section-header">
