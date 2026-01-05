@@ -2,173 +2,362 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>About — Irmin Tech</title>
-  <meta name="description" content="Our story: second-generation renewable feedstock supply focused on intermediate crops with traceability-ready execution across Germany, Bucharest (Romania), and Kazakhstan." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Irmin Tech — Second-generation renewable feedstock supply</title>
+  <meta name="description" content="Irmin Tech supplies second-generation renewable feedstocks from intermediate crops (Camelina sativa and Carinata) with traceability-ready supply chains across Germany, Romania, and Kazakhstan." />
 
-  <link rel="icon" href="/favicon.svg" />
-  <link rel="stylesheet" href="/assets/css/styles.css" />
-  <script defer src="/assets/js/main.js"></script>
+  <meta property="og:title" content="Irmin Tech" />
+  <meta property="og:description" content="Second-generation renewable feedstock supply focused on intermediate crops for advanced biofuels." />
+  <meta property="og:type" content="website" />
+
+  <!-- TAB ICON (favicon) -->
+  <link rel="icon" href="assets/images/logo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/images/logo.png" />
+
+  <link rel="stylesheet" href="assets/css/irmin.css" />
+  <script defer src="assets/js/irmin.js"></script>
 </head>
 
 <body>
-  <a class="skip" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="header">
-    <div class="container header__inner">
-      <a class="brand" href="/">
-        <span class="brand__mark">IT</span>
-        <span class="brand__name">Irmin Tech</span>
+  <header class="site-header">
+    <div class="container header-inner">
+      <!-- TOP-LEFT LOGO -->
+      <a class="brand" href="index.html" aria-label="Irmin Tech home" style="gap:12px;">
+        <img
+          src="assets/images/logo.png"
+          alt="Irmin Tech"
+          style="height:30px;width:auto;border-radius:10px;display:block;"
+        />
+        <span>Irmin Tech</span>
       </a>
 
-      <nav class="nav" aria-label="Primary">
-        <a href="/" data-nav="/">Home</a>
-        <a href="/about.html" data-nav="/about.html">About</a>
-        <a href="/feedstocks.html" data-nav="/feedstocks.html">Feedstocks</a>
-        <a href="/resources.html" data-nav="/resources.html">Resources</a>
-        <a href="/contact.html" data-nav="/contact.html">Contact</a>
+      <nav class="nav" data-nav data-open="false" aria-label="Primary navigation">
+        <a href="about.html">About</a>
+        <a href="feedstocks.html">Feedstocks</a>
+        <a href="resources.html">Resources</a>
+        <a href="contact.html">Contact</a>
       </nav>
 
-      <div class="header__cta">
-        <a class="btn btn--outline" href="/feedstocks.html">Explore Feedstocks</a>
-        <a class="btn" href="/contact.html">Talk to us</a>
-      </div>
-
-      <button class="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
-    </div>
-
-    <div class="mobileNav" hidden>
-      <div class="container">
-        <a href="/">Home</a>
-        <a href="/about.html">About</a>
-        <a href="/feedstocks.html">Feedstocks</a>
-        <a href="/resources.html">Resources</a>
-        <a href="/contact.html">Contact</a>
-        <div class="mobileNav__cta">
-          <a class="btn btn--outline" href="/feedstocks.html">Explore Feedstocks</a>
-          <a class="btn" href="/contact.html">Talk to us</a>
-        </div>
+      <div class="header-right">
+        <button class="mobile-toggle" data-mobile-toggle aria-expanded="false" aria-label="Open menu">
+          Menu
+        </button>
+        <a class="btn btn-dark" href="contact.html">Talk to us</a>
       </div>
     </div>
   </header>
 
   <main id="main">
-    <section class="section">
+    <!-- HERO -->
+    <section class="hero">
       <div class="container">
+        <div class="hero-card">
+          <div class="hero-media" aria-hidden="true"></div>
 
-        <!-- top image band feel, but inline svg -->
-        <div class="band" aria-hidden="true">
-          <svg viewBox="0 0 1600 520" role="img">
-            <rect width="1600" height="520" rx="28" fill="#F6F7F9"></rect>
-            <path d="M0 360C260 320 430 420 700 370C970 320 1090 220 1320 280C1480 320 1560 410 1600 385V520H0V360Z" fill="#ECEFF2"></path>
-            <text x="70" y="140" font-family="ui-sans-serif, system-ui" font-size="42" fill="#9AA3AE">Our Story</text>
-            <text x="70" y="195" font-family="ui-sans-serif, system-ui" font-size="20" fill="#9AA3AE">Built for traceability-ready execution</text>
-          </svg>
-        </div>
+          <div class="hero-content">
+            <div>
+              <!-- HERO LOGO (subtle badge) -->
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+                <img
+                  src="assets/images/logo.png"
+                  alt=""
+                  aria-hidden="true"
+                  style="height:26px;width:auto;border-radius:10px;box-shadow:0 10px 22px rgba(2,6,23,.10);"
+                />
+                <div class="kicker" style="margin:0;">Second-generation feedstock supply</div>
+              </div>
 
-        <div class="section section--tight">
-          <div class="prose">
-            <h1 class="h1" style="font-size: clamp(2rem, 3vw, 2.6rem);">Our Story</h1>
+              <h1>Intermediate crops, built for advanced biofuels supply chains.</h1>
+              <p class="lead">
+                Irmin Tech supplies renewable feedstocks from <b>Camelina sativa</b> and <b>Carinata</b>—bridging agriculture and renewable fuels markets through a traceability-ready, partnership-led model.
+              </p>
 
-            <p class="muted" style="margin-top:14px;">
-              Irmin Tech is a second-generation renewable feedstock supplier focused on intermediate crops for advanced biofuels.
-              We bridge agriculture and renewable fuels markets with supply programs designed to be practical—contractable,
-              routable, and documentation-ready.
-            </p>
-
-            <p class="muted" style="margin-top:12px;">
-              We are based in Germany and operate across Bucharest (Romania) and Kazakhstan. Our work spans origin build-out,
-              partner coordination, and buyer-facing interfaces—ensuring the chain from field to refinery gate is aligned
-              on quality, routing, and traceability expectations.
-            </p>
-
-            <div class="divider"></div>
-
-            <h2 class="h2">Mission</h2>
-            <p class="muted" style="margin-top:10px;">
-              Build reliable intermediate-crop feedstock supply for SAF and renewable fuels value chains—through disciplined execution and traceability-ready reporting.
-            </p>
-
-            <h2 class="h2" style="margin-top:26px;">What makes Irmin Tech different</h2>
-            <ul class="cardList">
-              <li><b style="color:var(--text);">Intermediate-crop focus:</b> Camelina sativa and Carinata programs designed around realistic grower adoption and routing.</li>
-              <li><b style="color:var(--text);">Traceability-ready execution:</b> chain-of-custody thinking built into contracting, batching, and handoffs.</li>
-              <li><b style="color:var(--text);">Partnership model:</b> structured interfaces with growers, aggregators, logistics, and crushing partners.</li>
-              <li><b style="color:var(--text);">B2B reliability:</b> clear specs, predictable timelines, and transparent assumptions—no hype.</li>
-            </ul>
-
-            <h2 class="h2" style="margin-top:26px;">Sustainability & compliance readiness</h2>
-            <p class="muted" style="margin-top:10px;">
-              Our programs are designed to align with RED III expectations in documentation and reporting practices, based on
-              what downstream buyers typically require to support regulatory and voluntary scheme needs.
-            </p>
-            <p class="muted" style="margin-top:12px;">
-              We operate with a certification-ready mindset for schemes such as ISCC / CORSIA where applicable—meaning the supply chain is structured
-              to support audit-ready data capture and verification, subject to partner scope and project requirements.
-            </p>
-
-            <h2 class="h2" style="margin-top:26px;">Where we operate</h2>
-            <div class="grid3" style="margin-top:12px;">
-              <div class="card"><div class="card__pad">
-                <div class="h3">Germany</div>
-                <div class="card__muted">Program design, partner coordination, market interface.</div>
-              </div></div>
-              <div class="card"><div class="card__pad">
-                <div class="h3">Bucharest (Romania)</div>
-                <div class="card__muted">Regional execution and stakeholder alignment.</div>
-              </div></div>
-              <div class="card"><div class="card__pad">
-                <div class="h3">Kazakhstan</div>
-                <div class="card__muted">Origin development and supply chain build-out.</div>
-              </div></div>
-            </div>
-
-            <div class="card" style="margin-top:18px;">
-              <div class="card__pad">
-                <div class="h3">Working with us</div>
-                <p class="card__muted">
-                  If you’re evaluating intermediate crops for SAF or renewable fuels—or exploring grower, logistics, or processing partnerships—we’ll share a practical engagement path and documentation expectations upfront.
-                </p>
-                <div style="display:flex; gap:10px; margin-top:14px; flex-wrap:wrap;">
-                  <a class="btn btn--outline" href="/feedstocks.html">Explore Feedstocks</a>
-                  <a class="btn" href="/contact.html">Talk to us</a>
-                </div>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="feedstocks.html"><strong>Explore Feedstocks</strong> →</a>
+                <a class="btn" href="contact.html">Talk to us</a>
               </div>
             </div>
 
+            <aside class="hero-aside" aria-label="At a glance">
+              <span class="badge">Traceability-ready execution</span>
+
+              <div class="hero-metrics">
+                <div class="metric">
+                  <b>Intermediate crops</b>
+                  <span>Practical rotation-fit programs that can be contracted and routed.</span>
+                </div>
+                <div class="metric">
+                  <b>Value chain bridge</b>
+                  <span>Agriculture → logistics/processing → refinery-gate delivery.</span>
+                </div>
+                <div class="metric">
+                  <b>Footprint</b>
+                  <span>Germany · Romania · Kazakhstan</span>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR APPROACH -->
+    <section class="section-tight">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="kicker">Our approach</div>
+            <h2>From field to renewable fuels—clear steps, clean handoffs.</h2>
+            <p class="lead">
+              We focus on execution details buyers care about: contracting, aggregation, routing, processing interfaces, and documentation readiness.
+            </p>
           </div>
         </div>
 
+        <div class="flow" role="region" aria-label="Field to refinery flow">
+          <div class="flow-steps">
+            <div class="flow-step"><b>1) Program setup</b><span>Crop fit, contracting approach, scope.</span></div>
+            <div class="flow-step"><b>2) Cultivation</b><span>Grower enablement and expectations.</span></div>
+            <div class="flow-step"><b>3) Aggregation</b><span>Storage, batching, quality handling.</span></div>
+            <div class="flow-step"><b>4) Processing</b><span>Crushing/extraction partnerships.</span></div>
+            <div class="flow-step"><b>5) Delivery</b><span>Refinery-gate handoff + reporting pack.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUE CHAIN -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="kicker">Value chain</div>
+            <h2>Disciplined scope. Partnership execution.</h2>
+            <p class="lead">
+              We keep it simple and buyer-aligned: crop programs, partner interfaces, and traceability-ready records—without hype.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid cols-3">
+          <div class="card">
+            <div class="icon" aria-hidden="true">🌱</div>
+            <h3>Intermediate crop cultivation</h3>
+            <p>Programs designed around rotation fit and adoption realism.</p>
+          </div>
+          <div class="card">
+            <div class="icon" aria-hidden="true">🤝</div>
+            <h3>Grower partnerships</h3>
+            <p>Clear contracting, onboarding, and delivery expectations.</p>
+          </div>
+          <div class="card">
+            <div class="icon" aria-hidden="true">🏭</div>
+            <h3>Crushing/extraction partners</h3>
+            <p>Aligned specs and handoffs to reduce exception risk.</p>
+          </div>
+          <div class="card">
+            <div class="icon" aria-hidden="true">🧩</div>
+            <h3>Co-products</h3>
+            <p>Handled as part of system economics—kept concise.</p>
+          </div>
+          <div class="card">
+            <div class="icon" aria-hidden="true">📍</div>
+            <h3>Traceability & reporting</h3>
+            <p>Documentation structured to be certification-ready where applicable.</p>
+          </div>
+          <div class="card">
+            <div class="icon" aria-hidden="true">🚛</div>
+            <h3>Routing coordination</h3>
+            <p>Storage, batching, and delivery planning for reliability.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEEDSTOCK SPOTLIGHT -->
+    <section class="section-tight">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="kicker">Feedstocks spotlight</div>
+            <h2>Camelina & Carinata—industrial oilseed intermediate crops.</h2>
+            <p class="lead">
+              Selected for program design potential and compatibility with advanced biofuels value chains.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid cols-2">
+          <article class="card spotlight-card">
+            <div class="spotlight-top">
+              <div class="spotlight-img"
+                   style="background-image:url('assets/images/camelina.png')"
+                   role="img"
+                   aria-label="Camelina sativa plant"></div>
+              <div class="spotlight-body">
+                <span class="badge">Camelina sativa</span>
+                <h3 style="margin-top:10px">Rotation-friendly intermediate crop</h3>
+                <ul class="bullets">
+                  <li>Program design around grower onboarding and delivery structure</li>
+                  <li>Oil profile suited to renewable fuels pathways</li>
+                  <li>Documentation expectations aligned early with buyers</li>
+                </ul>
+                <div class="divider"></div>
+                <a class="btn btn-primary" href="feedstocks.html#camelina"><strong>Details</strong> →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card spotlight-card">
+            <div class="spotlight-top">
+              <div class="spotlight-img"
+                   style="background-image:url('assets/images/carinata.png')"
+                   role="img"
+                   aria-label="Carinata plant"></div>
+              <div class="spotlight-body">
+                <span class="badge">Carinata</span>
+                <h3 style="margin-top:10px">Industrial oilseed with scale focus</h3>
+                <ul class="bullets">
+                  <li>Structured partnering across aggregation and processing</li>
+                  <li>Clear specs and handoffs to reduce exceptions</li>
+                  <li>Traceability-ready records designed into execution</li>
+                </ul>
+                <div class="divider"></div>
+                <a class="btn btn-primary" href="feedstocks.html#carinata"><strong>Details</strong> →</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHERE WE OPERATE -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="kicker">Where we operate</div>
+            <h2>Germany · Romania · Kazakhstan</h2>
+            <p class="lead">
+              One operating standard across regions—built for traceability-ready supply chain execution.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid cols-3 map-cards">
+          <div class="card">
+            <div class="loc-media" style="background-image:url('assets/images/hero-field.png')"></div>
+            <div class="loc-overlay" aria-hidden="true"></div>
+            <div class="loc-body">
+              <b>Germany</b>
+              <span>Program design, partnerships, and buyer interface</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="loc-media" style="background-image:url('assets/images/hero-field.png')"></div>
+            <div class="loc-overlay" aria-hidden="true"></div>
+            <div class="loc-body">
+              <b>Romania</b>
+              <span>Regional coordination and execution alignment</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="loc-media" style="background-image:url('assets/images/hero-field.png')"></div>
+            <div class="loc-overlay" aria-hidden="true"></div>
+            <div class="loc-body">
+              <b>Kazakhstan</b>
+              <span>Origin development and supply build-out</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LATEST RESOURCES preview -->
+    <section class="section-tight">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="kicker">Latest resources</div>
+            <h2>Short, execution-focused notes.</h2>
+            <p class="lead">Practical pieces on intermediate crops, traceability, and what buyers actually diligence.</p>
+          </div>
+          <div>
+            <a class="btn" href="resources.html">View all resources</a>
+          </div>
+        </div>
+
+        <div class="grid cols-3">
+          <a class="card resource-card" href="resources.html">
+            <h3>Camelina vs. Carinata: what developers care about</h3>
+            <p>Contracting, routing, and documentation—where diligence usually concentrates.</p>
+            <div class="tags"><span class="tag">Feedstocks</span><span class="tag">5 min</span></div>
+          </a>
+          <a class="card resource-card" href="resources.html">
+            <h3>Traceability from seed to refinery gate: a checklist</h3>
+            <p>A simple checklist to reduce exceptions and keep documentation clean.</p>
+            <div class="tags"><span class="tag">Traceability</span><span class="tag">4 min</span></div>
+          </a>
+          <a class="card resource-card" href="resources.html">
+            <h3>Intermediate crops under RED III: practical implications</h3>
+            <p>How “aligned” translates into operations and data responsibilities.</p>
+            <div class="tags"><span class="tag">Policy</span><span class="tag">6 min</span></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="cta-band">
+      <div class="container cta-inner">
+        <div>
+          <div class="kicker">Next step</div>
+          <h2 style="margin:10px 0 0;">Evaluate a corridor, scope the program, move fast.</h2>
+          <p class="lead" style="margin-top:10px;">
+            If you’re assessing intermediate crops for SAF / renewable fuels, we’ll align on requirements and provide a practical engagement path.
+          </p>
+        </div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn btn-primary" href="feedstocks.html"><strong>Explore Feedstocks</strong> →</a>
+          <a class="btn btn-dark" href="contact.html">Talk to us</a>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer__inner">
+  <footer>
+    <div class="container footer-grid">
       <div>
-        <div class="footer__title">Irmin Tech</div>
-        <div class="footer__muted">
+        <div style="font-weight:900; letter-spacing:-.02em;">Irmin Tech</div>
+        <p class="muted" style="margin:10px 0 0;">
           Second-generation renewable feedstock supply focused on intermediate crops and traceability-ready execution.
+        </p>
+      </div>
+
+      <div>
+        <div style="font-weight:900;">Footprint</div>
+        <div class="footer-links">
+          <a href="#" onclick="return false;">Germany</a>
+          <a href="#" onclick="return false;">Romania</a>
+          <a href="#" onclick="return false;">Kazakhstan</a>
         </div>
       </div>
 
       <div>
-        <div class="footer__title">Footprint</div>
-        <ul class="footer__list">
-          <li>Germany</li>
-          <li>Bucharest (Romania)</li>
-          <li>Kazakhstan</li>
-        </ul>
-      </div>
-
-      <div>
-        <div class="footer__title">Email</div>
-        <a class="footer__link" href="mailto:info@irmintech.com">info@irmintech.com</a>
+        <div style="font-weight:900;">Contact</div>
+        <div class="footer-links">
+          <a href="mailto:info@irmintech.com">info@irmintech.com</a>
+          <a href="contact.html">Contact form</a>
+        </div>
       </div>
     </div>
 
-    <div class="container footer__bottom">
-      © <span id="year"></span> Irmin Tech. All rights reserved.
+    <div class="container" style="margin-top:18px; padding-top:18px; border-top:1px solid rgba(15, 23, 42, 0.10);">
+      <span class="muted small">© <span data-year></span> Irmin Tech. All rights reserved.</span>
     </div>
   </footer>
 </body>
