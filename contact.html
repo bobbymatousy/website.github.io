@@ -1,49 +1,186 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact — Alan Suleimanov</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-    <style>
-      body { font-family: 'JetBrains Mono', monospace; padding: 3rem 1.5rem; transition: background .3s, color .3s; }
-      body.light { background: #fff; color: #111; }
-      body.dark { background: #0f0f0f; color: #e2e2e2; }
-      a { color: #007acc; } body.dark a { color: #5cd3ff; }
-      .toggle-btn { border: 1px solid #aaa; padding: .4rem .8rem; border-radius: 8px; cursor: pointer; }
-    </style>
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Irmin Tech</title>
+  <meta name="description" content="Talk to Irmin Tech about buying feedstocks, grower partnerships, or logistics / processing partnerships." />
 
-  <body class="light max-w-2xl mx-auto">
-    <div class="flex justify-between items-center mb-6">
-      <div class="text-xl font-semibold">◆ Contact</div>
-      <button class="toggle-btn" id="themeToggle">Dark mode</button>
+  <link rel="icon" href="/favicon.svg" />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <script defer src="/assets/js/main.js"></script>
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a class="brand" href="/">
+        <span class="brand__mark">IT</span>
+        <span class="brand__name">Irmin Tech</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="/" data-nav="/">Home</a>
+        <a href="/about.html" data-nav="/about.html">About</a>
+        <a href="/feedstocks.html" data-nav="/feedstocks.html">Feedstocks</a>
+        <a href="/resources.html" data-nav="/resources.html">Resources</a>
+        <a href="/contact.html" data-nav="/contact.html">Contact</a>
+      </nav>
+
+      <div class="header__cta">
+        <a class="btn btn--outline" href="/feedstocks.html">Explore Feedstocks</a>
+        <a class="btn" href="/contact.html">Talk to us</a>
+      </div>
+
+      <button class="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
     </div>
 
-    <div class="nav mb-6">
-      <a href="index.html">Home</a> |
-      <a href="projects.html">Projects</a> |
-      <a href="about.html">About</a> |
-      <a href="portfolio.html">Portfolio</a> |
-      <a href="contact.html" class="font-semibold">Contact</a>
+    <div class="mobileNav" hidden>
+      <div class="container">
+        <a href="/">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/feedstocks.html">Feedstocks</a>
+        <a href="/resources.html">Resources</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section">
+      <div class="container">
+        <div class="prose">
+          <div class="kicker">Contact</div>
+          <h1 class="h1" style="font-size: clamp(2rem, 3vw, 2.6rem);">Talk to us</h1>
+          <p class="muted" style="margin-top:14px;">
+            Share what you’re evaluating and we’ll respond with a practical next step.
+            (Demo site: this form shows a local success message and does not send email yet.)
+          </p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="grid2">
+          <div class="card">
+            <div class="card__padLg">
+              <form data-contact-form novalidate>
+                <div class="formTwo">
+                  <div>
+                    <label class="label" for="firstName">First name</label>
+                    <input class="input" id="firstName" name="firstName" autocomplete="given-name" />
+                    <div class="error" data-error data-error-for="firstName"></div>
+                  </div>
+                  <div>
+                    <label class="label" for="lastName">Last name</label>
+                    <input class="input" id="lastName" name="lastName" autocomplete="family-name" />
+                    <div class="error" data-error data-error-for="lastName"></div>
+                  </div>
+                </div>
+
+                <div style="margin-top:14px;">
+                  <label class="label" for="email">Email</label>
+                  <input class="input" id="email" name="email" autocomplete="email" />
+                  <div class="error" data-error data-error-for="email"></div>
+                </div>
+
+                <div style="margin-top:14px;">
+                  <label class="label" for="company">Company <span class="muted small">(optional)</span></label>
+                  <input class="input" id="company" name="company" autocomplete="organization" />
+                </div>
+
+                <div style="margin-top:14px;">
+                  <label class="label" for="interest">Interest</label>
+                  <select class="select" id="interest" name="interest">
+                    <option value="">Select…</option>
+                    <option>Buying feedstocks</option>
+                    <option>Grower partnership</option>
+                    <option>Logistics / processing partnership</option>
+                    <option>Press</option>
+                    <option>Other</option>
+                  </select>
+                  <div class="error" data-error data-error-for="interest"></div>
+                </div>
+
+                <div style="margin-top:14px;">
+                  <label class="label" for="message">Message</label>
+                  <textarea class="textarea" id="message" name="message" placeholder="Tell us what you’re evaluating, geography, and timeline…"></textarea>
+                  <div class="error" data-error data-error-for="message"></div>
+                </div>
+
+                <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+                  <button class="btn" type="submit">Send message</button>
+                  <a class="btn btn--outline" href="/feedstocks.html">Explore Feedstocks</a>
+                </div>
+              </form>
+
+              <div class="notice" data-contact-success hidden style="margin-top:14px;">
+                <b style="color:var(--text);">Message received (demo).</b><br/>
+                Thanks — we’ll follow up via email. (This demo does not send messages yet.)
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card__padLg">
+              <div class="h3">Contact details</div>
+              <p class="muted" style="margin-top:8px;">Email: <a href="mailto:info@irmintech.com">info@irmintech.com</a></p>
+
+              <div class="divider"></div>
+
+              <div class="h3">Footprint</div>
+              <ul class="cardList">
+                <li>Germany</li>
+                <li>Bucharest (Romania)</li>
+                <li>Kazakhstan</li>
+              </ul>
+
+              <div class="divider"></div>
+
+              <div class="h3">What to include</div>
+              <ul class="cardList">
+                <li>Intended use case (SAF / renewable fuels value chain)</li>
+                <li>Geography and delivery corridor</li>
+                <li>Timeline and decision path</li>
+                <li>Documentation expectations where applicable</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <div class="footer__title">Irmin Tech</div>
+        <div class="footer__muted">
+          Second-generation renewable feedstock supply focused on intermediate crops and traceability-ready execution.
+        </div>
+      </div>
+
+      <div>
+        <div class="footer__title">Footprint</div>
+        <ul class="footer__list">
+          <li>Germany</li>
+          <li>Bucharest (Romania)</li>
+          <li>Kazakhstan</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer__title">Email</div>
+        <a class="footer__link" href="mailto:info@irmintech.com">info@irmintech.com</a>
+      </div>
     </div>
 
-    <p>📧 <b>Email:</b> <a href="mailto:alan.a.suleimanov@gmail.com">alan.a.suleimanov@gmail.com</a></p>
-    <p>💼 <b>LinkedIn:</b> <a href="https://linkedin.com/in/alan-suleimanov">linkedin.com/in/alan-suleimanov</a></p>
-    <p>💻 <b>GitHub:</b> <a href="https://github.com/GroovieYT">github.com/GroovieYT</a></p>
-    <p>🐦 <b>X:</b> <a href="https://x.com">x.com</a></p>
-
-    <footer class="mt-6 text-sm text-gray-500">© <span id="year"></span> Alan Suleimanov</footer>
-
-    <script>
-      document.getElementById('year').innerText = new Date().getFullYear();
-      const toggleBtn = document.getElementById('themeToggle');
-      const body = document.body;
-      if (localStorage.getItem('theme') === 'dark') body.classList.replace('light', 'dark');
-      toggleBtn.addEventListener('click', () => {
-        if (body.classList.contains('light')) { body.classList.replace('light', 'dark'); localStorage.setItem('theme', 'dark'); }
-        else { body.classList.replace('dark', 'light'); localStorage.setItem('theme', 'light'); }
-      });
-    </script>
-  </body>
+    <div class="container footer__bottom">
+      © <span id="year"></span> Irmin Tech. All rights reserved.
+    </div>
+  </footer>
+</body>
 </html>
