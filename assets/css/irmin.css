@@ -287,7 +287,7 @@ p.lead{
       linear-gradient(180deg, rgba(255,255,255,.90) 0%, rgba(255,255,255,.80) 50%, rgba(255,255,255,.08) 100%),
       radial-gradient(900px 420px at 85% 25%, rgba(56,189,248,.20), transparent 55%),
       radial-gradient(900px 520px at 55% 70%, rgba(132,204,22,.16), transparent 60%),
-      url("../img/hero-field.jpg") center/cover no-repeat;
+      url("../images/hero-field.png") center/cover no-repeat;
   }
 }
 
