@@ -1,248 +1,327 @@
-<!DOCTYPE html>
-<html lang="en" class="transition-colors duration-300">
+<!doctype html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Comet Cursor Trail (Theme‑Aware)</title>
-  <meta name="description" content="Soft physics comet cursor trail that auto-inverts in light/dark themes." />
-  <style>
-    :root {
-      color-scheme: light dark;
-      --bg-light: #ffffff;
-      --bg-dark: #0b0b0b;
-      --fg-light: #000000;
-      --fg-dark: #ffffff;
-      --accent: #8aa0ff;
-    }
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Irmin Tech — Renewable Feedstocks</title>
+  <meta name="description" content="Second-generation renewable feedstock supplier focused on intermediate crops—Camelina sativa and Carinata—built for traceable execution across the advanced biofuels value chain." />
 
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-    }
+  <link rel="icon" href="/favicon.svg" />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <script defer src="/assets/js/main.js"></script>
 
-    /* Demo background gradients (can be removed in integration) */
-    body {
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell,
-        Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      background: linear-gradient(180deg, #f7f7f8 0%, #ffffff 100%);
-      color: #111;
-      transition: background 300ms ease, color 300ms ease;
-    }
-
-    .dark body {
-      background: linear-gradient(180deg, #0e0f12 0%, #000 100%);
-      color: #eaeaea;
-    }
-
-    /* Canvas that draws the trail */
-    #cursor-trail {
-      position: fixed;
-      inset: 0;
-      width: 100vw; height: 100vh;
-      pointer-events: none; /* don't block clicks */
-      z-index: 2147483647; /* above all content */
-      display: block;
-    }
-
-    /* Small demo UI for toggling theme (remove in integration) */
-    .demo-bar {
-      position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%);
-      background: color-mix(in srgb, canvas, transparent 30%);
-      backdrop-filter: blur(8px);
-      border: 1px solid color-mix(in srgb, currentColor, transparent 75%);
-      border-radius: 999px;
-      padding: 8px 12px;
-      display: flex; gap: 8px; align-items: center;
-      z-index: 2147483646;
-      font-size: 14px;
-    }
-    .demo-btn {
-      border: 1px solid currentColor;
-      background: transparent;
-      border-radius: 999px;
-      padding: 6px 10px;
-      cursor: pointer;
-    }
-  </style>
+  <meta property="og:title" content="Irmin Tech — Renewable Feedstocks" />
+  <meta property="og:description" content="Intermediate-crop feedstocks for advanced biofuels, with traceability designed into execution." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/images/og.svg" />
 </head>
+
 <body>
-  <canvas id="cursor-trail"></canvas>
+  <a class="skip" href="#main">Skip to content</a>
 
-  <!-- Demo controls (safe to remove when integrating into your site) -->
-  <div class="demo-bar" aria-hidden="true">
-    <span>Theme:</span>
-    <button class="demo-btn" id="theme-light">Light</button>
-    <button class="demo-btn" id="theme-dark">Dark</button>
-    <button class="demo-btn" id="theme-auto">Auto</button>
-  </div>
+  <header class="header">
+    <div class="container header__inner">
+      <a class="brand" href="/">
+        <span class="brand__mark">IT</span>
+        <span class="brand__name">Irmin Tech</span>
+      </a>
 
-  <script>
-    (function () {
-      const canvas = document.getElementById('cursor-trail');
-      const ctx = canvas.getContext('2d');
+      <nav class="nav" aria-label="Primary">
+        <a href="/" data-nav="/">Home</a>
+        <a href="/about.html" data-nav="/about.html">About</a>
+        <a href="/feedstocks.html" data-nav="/feedstocks.html">Feedstocks</a>
+        <a href="/resources.html" data-nav="/resources.html">Resources</a>
+        <a href="/contact.html" data-nav="/contact.html">Contact</a>
+      </nav>
 
-      // DPR-aware canvas
-      let dpr = Math.max(1, Math.min(window.devicePixelRatio || 1, 2));
-      function resize() {
-        dpr = Math.max(1, Math.min(window.devicePixelRatio || 1, 2));
-        const { innerWidth: w, innerHeight: h } = window;
-        canvas.width = Math.floor(w * dpr);
-        canvas.height = Math.floor(h * dpr);
-        canvas.style.width = w + 'px';
-        canvas.style.height = h + 'px';
-        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      }
-      window.addEventListener('resize', resize, { passive: true });
-      resize();
+      <div class="header__cta">
+        <a class="btn btn--outline" href="/feedstocks.html">Explore Feedstocks</a>
+        <a class="btn" href="/contact.html">Talk to us</a>
+      </div>
 
-      // Track pointer
-      const pointer = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-      const target = { x: pointer.x, y: pointer.y };
+      <button class="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
 
-      function onMove(e) {
-        if (e.touches && e.touches[0]) {
-          target.x = e.touches[0].clientX; target.y = e.touches[0].clientY;
-        } else {
-          target.x = e.clientX; target.y = e.clientY;
-        }
-      }
-      window.addEventListener('mousemove', onMove, { passive: true });
-      window.addEventListener('touchmove', onMove, { passive: true });
+    <div class="mobileNav" hidden>
+      <div class="container">
+        <a href="/">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/feedstocks.html">Feedstocks</a>
+        <a href="/resources.html">Resources</a>
+        <a href="/contact.html">Contact</a>
+        <div class="mobileNav__cta">
+          <a class="btn btn--outline" href="/feedstocks.html">Explore Feedstocks</a>
+          <a class="btn" href="/contact.html">Talk to us</a>
+        </div>
+      </div>
+    </div>
+  </header>
 
-      // Physics trail points
-      const N = 14; // number of nodes
-      const pts = Array.from({ length: N }, () => ({ x: pointer.x, y: pointer.y }));
+  <main id="main">
+    <section class="section">
+      <div class="container">
+        <div class="heroGrid">
+          <div>
+            <div class="kicker">Second-generation renewable feedstocks</div>
+            <h1 class="h1">Intermediate-crop supply built for advanced biofuels.</h1>
+            <p class="muted" style="margin-top:14px; max-width: 56ch;">
+              Irmin Tech supplies Camelina sativa and Carinata for SAF and renewable fuels value chains—connecting agriculture, logistics, and processing through traceability-ready execution.
+            </p>
 
-      // Lerp helpers
-      const clamp = (n, a, b) => Math.max(a, Math.min(b, n));
-      function lerp(a, b, t) { return a + (b - a) * t; }
+            <div style="display:flex; gap:10px; margin-top:18px; flex-wrap:wrap;">
+              <a class="btn btn--outline btn--lg" href="/feedstocks.html">Explore Feedstocks</a>
+              <a class="btn btn--lg" href="/contact.html">Talk to us</a>
+            </div>
 
-      // Theme detection + background luminance
-      const mqDark = window.matchMedia('(prefers-color-scheme: dark)');
-      function hexToRgb(str) {
-        const ctx = document.createElement('canvas').getContext('2d');
-        ctx.fillStyle = str; // lets the canvas parse colors
-        const computed = ctx.fillStyle;
-        // computed is like #rrggbb
-        const m = /^#([\da-f]{2})([\da-f]{2})([\da-f]{2})$/i.exec(computed);
-        if (!m) return { r: 255, g: 255, b: 255 };
-        return { r: parseInt(m[1], 16), g: parseInt(m[2], 16), b: parseInt(m[3], 16) };
-      }
-      function srgbToLinear(u) {
-        u = u / 255;
-        return u <= 0.04045 ? u / 12.92 : Math.pow((u + 0.055) / 1.055, 2.4);
-      }
-      function getBgLuminance() {
-        const cs = getComputedStyle(document.body);
-        const bg = cs.backgroundColor;
-        // backgroundColor may be rgba(...) or transparent if gradient; fall back to color if needed
-        let r=255,g=255,b=255, a=1;
-        const rgba = /rgba?\(([^)]+)\)/.exec(bg);
-        if (rgba) {
-          const parts = rgba[1].split(',').map(s => s.trim());
-          r = parseFloat(parts[0]); g = parseFloat(parts[1]); b = parseFloat(parts[2]);
-          a = parts[3] !== undefined ? parseFloat(parts[3]) : 1;
-        } else {
-          const { r: rr, g: gg, b: bb } = hexToRgb(bg || '#fff');
-          r = rr; g = gg; b = bb;
-        }
-        const R = srgbToLinear(r), G = srgbToLinear(g), B = srgbToLinear(b);
-        // WCAG relative luminance
-        return 0.2126 * R + 0.7152 * G + 0.0722 * B;
-      }
-      function isDarkTheme() {
-        // Priority: .dark class on <html> -> prefers-color-scheme -> background luminance
-        const html = document.documentElement;
-        if (html.classList.contains('dark')) return true;
-        if (html.classList.contains('light')) return false;
-        if (mqDark.matches) return true;
-        // fall back to luminance of page background
-        return getBgLuminance() < 0.45;
-      }
+            <div class="divider"></div>
 
-      // Color resolver
-      function getTrailRGBA(alpha) {
-        const dark = isDarkTheme();
-        const c = dark ? 255 : 0;
-        return `rgba(${c}, ${c}, ${c}, ${alpha})`;
-      }
+            <div class="grid3">
+              <div class="card"><div class="card__pad">
+                <div class="h3">Intermediate crops</div>
+                <div class="card__muted">Rotation-compatible supply strategies designed for scaling.</div>
+              </div></div>
+              <div class="card"><div class="card__pad">
+                <div class="h3">Partnership model</div>
+                <div class="card__muted">Growers, aggregators, logistics, crushing—clear interfaces.</div>
+              </div></div>
+              <div class="card"><div class="card__pad">
+                <div class="h3">Traceability-ready</div>
+                <div class="card__muted">Documentation designed to support buyer expectations.</div>
+              </div></div>
+            </div>
+          </div>
 
-      // Listen for theme changes (MutationObserver for class changes, mql for OS changes)
-      const observer = new MutationObserver(() => { /* no-op, color is read each frame */ });
-      observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-      mqDark.addEventListener?.('change', () => { /* color updates next frame */ });
+          <div class="heroCard">
+            <!-- Put a real image here later: /assets/images/hero.jpg -->
+            <img class="heroImg" src="/assets/images/hero.svg" alt="Irmin Tech hero placeholder" />
+          </div>
+        </div>
+      </div>
+    </section>
 
-      let last = performance.now();
-      let raf; // requestAnimationFrame id
+    <section class="section section--tight">
+      <div class="container">
+        <div class="prose">
+          <div class="h2">Our approach</div>
+          <p class="muted" style="margin-top:10px;">
+            We focus on making the chain practical—field programs that map cleanly into logistics, processing, and downstream documentation.
+          </p>
+        </div>
 
-      function frame(t) {
-        const dt = clamp((t - last) / 16.6667, 0, 3); // normalize to ~60fps steps
-        last = t;
+        <div class="grid3" style="margin-top:16px;">
+          <div class="card"><div class="card__pad">
+            <div class="h3">1) Program design</div>
+            <div class="card__muted">Crop fit, regions, onboarding, and documentation requirements.</div>
+          </div></div>
+          <div class="card"><div class="card__pad">
+            <div class="h3">2) Grower partnering</div>
+            <div class="card__muted">Contracting, delivery windows, and quality rules defined upfront.</div>
+          </div></div>
+          <div class="card"><div class="card__pad">
+            <div class="h3">3) Routing to buyers</div>
+            <div class="card__muted">Aggregation → crushing partnerships → delivery with traceability packages.</div>
+          </div></div>
+        </div>
+      </div>
+    </section>
 
-        // Ease pointer toward target (natural feel)
-        const follow = 0.35; // larger = snappier head
-        pointer.x = lerp(pointer.x, target.x, 1 - Math.pow(1 - follow, dt));
-        pointer.y = lerp(pointer.y, target.y, 1 - Math.pow(1 - follow, dt));
+    <section class="section">
+      <div class="container">
+        <div class="prose">
+          <div class="h2">Value chain coverage</div>
+          <p class="muted" style="margin-top:10px;">
+            We bridge agriculture and renewable fuels markets with a focus on predictable interfaces and disciplined execution.
+          </p>
+        </div>
 
-        // Follow-the-leader for trail nodes
-        const tightness = 0.25; // lower = looser string
-        pts[0].x = lerp(pts[0].x, pointer.x, 1 - Math.pow(1 - 0.5, dt));
-        pts[0].y = lerp(pts[0].y, pointer.y, 1 - Math.pow(1 - 0.5, dt));
-        for (let i = 1; i < N; i++) {
-          pts[i].x = lerp(pts[i].x, pts[i - 1].x, 1 - Math.pow(1 - tightness, dt));
-          pts[i].y = lerp(pts[i].y, pts[i - 1].y, 1 - Math.pow(1 - tightness, dt));
-        }
+        <div class="grid3" style="margin-top:16px;">
+          <div class="card"><div class="card__padLg">
+            <div class="h3">Intermediate crop cultivation</div>
+            <p class="card__muted">Field programs designed around practical rotation and regional agronomy.</p>
+          </div></div>
+          <div class="card"><div class="card__padLg">
+            <div class="h3">Grower partnerships & contracting</div>
+            <p class="card__muted">Clear volume bands, quality expectations, and delivery windows.</p>
+          </div></div>
+          <div class="card"><div class="card__padLg">
+            <div class="h3">Oil extraction / crushing partnerships</div>
+            <p class="card__muted">Partner interfaces designed for reconciliation, sampling, and routing.</p>
+          </div></div>
+          <div class="card"><div class="card__padLg">
+            <div class="h3">Co-products routing</div>
+            <p class="card__muted">Co-products such as oilseed meal handled within the partner model.</p>
+          </div></div>
+          <div class="card"><div class="card__padLg">
+            <div class="h3">Traceability & reporting</div>
+            <p class="card__muted">Audit-ready data capture designed into the flow, not bolted on later.</p>
+          </div></div>
+          <div class="card"><div class="card__padLg">
+            <div class="h3">Market interface</div>
+            <p class="card__muted">Buyer alignment on specs, timelines, and documentation expectations.</p>
+          </div></div>
+        </div>
+      </div>
+    </section>
 
-        // Clear with a slight fade for smoother trails (motion persistence)
-        const fade = isDarkTheme() ? 'rgba(0,0,0,0.12)' : 'rgba(255,255,255,0.12)';
-        ctx.fillStyle = fade;
-        ctx.fillRect(0, 0, canvas.width / dpr, canvas.height / dpr);
+    <section class="section section--tight">
+      <div class="container">
+        <div class="prose">
+          <div class="h2">Feedstocks spotlight</div>
+          <p class="muted" style="margin-top:10px;">
+            Camelina sativa and Carinata are industrial oilseed intermediate crops used in second-generation feedstock strategies.
+          </p>
+        </div>
 
-        // Draw trail segments
-        for (let i = 0; i < N - 1; i++) {
-          const p = pts[i];
-          const q = pts[i + 1];
-          const tpos = i / (N - 1);
-          const size = 8 * (1 - tpos) + 2; // head thicker
-          const alpha = 0.12 + (1 - tpos) * 0.35; // brighter near head
-          ctx.strokeStyle = getTrailRGBA(alpha);
-          ctx.lineWidth = size;
-          ctx.lineCap = 'round';
-          ctx.beginPath();
-          ctx.moveTo(p.x, p.y);
-          ctx.lineTo(q.x, q.y);
-          ctx.stroke();
-        }
+        <div class="grid2" style="margin-top:16px;">
+          <div class="card">
+            <div class="card__padLg">
+              <div class="h3">Camelina sativa</div>
+              <ul class="cardList">
+                <li>Rotation-friendly intermediate crop fit in relevant regions</li>
+                <li>Oil profile suitable for renewable fuels pathways</li>
+                <li>Supports diversified agronomic planning</li>
+              </ul>
+              <div class="tags">
+                <span class="tag">Intermediate crop</span>
+                <span class="tag">Traceability-ready</span>
+              </div>
+            </div>
+          </div>
 
-        raf = requestAnimationFrame(frame);
-      }
+          <div class="card">
+            <div class="card__padLg">
+              <div class="h3">Carinata</div>
+              <ul class="cardList">
+                <li>Industrial oilseed option for programmatic scale approaches</li>
+                <li>Designed around stable routing and partner interfaces</li>
+                <li>Supports structured contracting and documentation</li>
+              </ul>
+              <div class="tags">
+                <span class="tag">Intermediate crop</span>
+                <span class="tag">Supply programs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      // Initialize canvas to a fully transparent layer (so first fade doesn't flash)
-      ctx.clearRect(0, 0, canvas.width / dpr, canvas.height / dpr);
-      raf = requestAnimationFrame(frame);
+    <section class="section">
+      <div class="container">
+        <div class="prose">
+          <div class="h2">Where we operate</div>
+          <p class="muted" style="margin-top:10px;">
+            We operate across Germany, Bucharest (Romania), and Kazakhstan—building programs that connect origin to downstream delivery.
+          </p>
+        </div>
 
-      // Pause when tab is hidden to save battery/CPU
-      document.addEventListener('visibilitychange', () => {
-        if (document.hidden) {
-          cancelAnimationFrame(raf);
-        } else {
-          last = performance.now();
-          raf = requestAnimationFrame(frame);
-        }
-      });
+        <div class="band" style="margin-top:16px;">
+          <img src="/assets/images/footprint.svg" alt="Operating footprint placeholder" />
+        </div>
 
-      // Demo theme toggles (optional)
-      const html = document.documentElement;
-      const btnLight = document.getElementById('theme-light');
-      const btnDark = document.getElementById('theme-dark');
-      const btnAuto = document.getElementById('theme-auto');
-      if (btnLight && btnDark && btnAuto) {
-        btnLight.addEventListener('click', () => { html.classList.remove('dark'); html.classList.add('light'); });
-        btnDark.addEventListener('click',  () => { html.classList.remove('light'); html.classList.add('dark'); });
-        btnAuto.addEventListener('click',  () => { html.classList.remove('light', 'dark'); });
-      }
-    })();
-  </script>
+        <div class="grid3" style="margin-top:16px;">
+          <div class="card"><div class="card__pad">
+            <div class="h3">Germany</div>
+            <div class="card__muted">Program design, partner coordination, market interface.</div>
+          </div></div>
+          <div class="card"><div class="card__pad">
+            <div class="h3">Bucharest (Romania)</div>
+            <div class="card__muted">Regional execution and stakeholder alignment.</div>
+          </div></div>
+          <div class="card"><div class="card__pad">
+            <div class="h3">Kazakhstan</div>
+            <div class="card__muted">Origin development and supply chain build-out.</div>
+          </div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container">
+        <div class="prose">
+          <div class="h2">Latest resources</div>
+          <p class="muted" style="margin-top:10px;">
+            Practical notes on intermediate crops, traceability, and execution.
+          </p>
+        </div>
+
+        <div class="grid3" style="margin-top:16px;">
+          <a class="card" href="/resources.html" style="text-decoration:none;">
+            <div class="card__pad">
+              <div class="h3">Camelina vs. Carinata: what developers care about</div>
+              <div class="card__muted">Contracting, quality, routing, and documentation—what shows up in diligence.</div>
+              <div class="tags"><span class="tag">Feedstocks</span></div>
+            </div>
+          </a>
+          <a class="card" href="/resources.html" style="text-decoration:none;">
+            <div class="card__pad">
+              <div class="h3">Intermediate crops under RED III: practical implications</div>
+              <div class="card__muted">How expectations translate into operations and reporting structure.</div>
+              <div class="tags"><span class="tag">Policy</span></div>
+            </div>
+          </a>
+          <a class="card" href="/resources.html" style="text-decoration:none;">
+            <div class="card__pad">
+              <div class="h3">Traceability from seed to refinery gate: a checklist</div>
+              <div class="card__muted">A simple checklist to reduce exceptions and simplify audits.</div>
+              <div class="tags"><span class="tag">Traceability</span></div>
+            </div>
+          </a>
+        </div>
+
+        <div style="margin-top:16px;">
+          <a class="btn btn--outline" href="/resources.html">View all resources</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="card">
+          <div class="card__padLg" style="display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap;">
+            <div class="prose">
+              <div class="h2">Discuss supply, partnering, or program build-out</div>
+              <p class="muted" style="margin-top:10px;">
+                If you’re evaluating intermediate crops for SAF or renewable fuels—or exploring grower, logistics, or processing partnerships—we’ll align on requirements and next steps quickly.
+              </p>
+            </div>
+            <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+              <a class="btn btn--outline btn--lg" href="/feedstocks.html">Explore Feedstocks</a>
+              <a class="btn btn--lg" href="/contact.html">Talk to us</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <div class="footer__title">Irmin Tech</div>
+        <div class="footer__muted">
+          Second-generation renewable feedstock supply focused on intermediate crops and traceability-ready execution.
+        </div>
+      </div>
+
+      <div>
+        <div class="footer__title">Footprint</div>
+        <ul class="footer__list">
+          <li>Germany</li>
+          <li>Bucharest (Romania)</li>
+          <li>Kazakhstan</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer__title">Email</div>
+        <a class="footer__link" href="mailto:info@irmintech.com">info@irmintech.com</a>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      © <span id="year"></span> Irmin Tech. All rights reserved.
+    </div>
+  </footer>
 </body>
 </html>
