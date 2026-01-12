@@ -1,1 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Resources — Irmin Tech</title>
+  <meta name="description" content="Execution-focused notes on intermediate crops, traceability, contracting, and what buyers actually diligence in advanced biofuels value chains." />
+
+  <meta property="og:title" content="Resources — Irmin Tech" />
+  <meta property="og:description" content="Short, practical notes on intermediate crops, traceability, and buyer diligence." />
+  <meta property="og:type" content="website" />
+
+  <!-- TAB ICON (favicon) -->
+  <link rel="icon" href="assets/images/logo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/images/logo.png" />
+
+  <link rel="stylesheet" href="assets/css/irmin.css" />
+  <script defer src="assets/js/irmin.js"></script>
+
+  <!-- Page-local styles for search/filter controls (keeps premium feel) -->
+  <style>
+    .controls{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      margin-top: 12px;
+    }
+    .searchWrap{
+      flex: 1 1 320px;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      border: 1px solid rgba(15,23,42,.10);
+      border-radius: 16px;
+      padding: 10px 12px;
+      background: rgba(255,255,255,.95);
+      box-shadow: 0 10px 22px rgba(2,6,23,.05);
+    }
+    .searchWrap input{
+      width:100%;
+      border:none;
+      outline:none;
+      font: inherit;
+      color: rgba(15,23,42,.92);
+      background: transparent;
+    }
+    .pillRow{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:flex-end;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(15,118,110,.18);
+      background: rgba(15,118,110,.07);
+      color: rgba(15,118,110,.92);
+      font-weight: 900;
+      font-size: 12px;
+      cursor: pointer;
+      user-select: none;
+      transition: transform .12s ease, filter .12s ease, background-color .12s ease;
+    }
+    .pill:hover{ transform: translateY(-1px); filter: brightness(1.02); }
+    .pill[aria-pressed="true"]{
+      background: rgba(15,118,110,.12);
+      box-shadow: inset 0 0 0 1px rgba(15,118,110,.14);
+    }
+    .resourceMeta{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top: 12px;
+      align-items:center;
+      color: rgba(11,18,32,.66);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .dot{
+      width:4px;
+      height:4px;
+      border-radius:999px;
+      background: rgba(11,18,32,.28);
+      display:inline-block;
+      transform: translateY(-1px);
+    }
+    .resourceCardTitle{
+      margin: 6px 0 8px;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+    }
+    .resourceCardText{ margin:0; color: rgba(11,18,32,.66); }
+
+    .empty{
+      display:none;
+      margin-top: 14px;
+      border: 1px solid rgba(15,23,42,.10);
+      border-radius: 16px;
+      background: rgba(2,6,23,.04);
+      padding: 14px;
+    }
+    .empty b{ display:block; }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- MATCHES HOME HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Irmin Tech home" style="gap:12px;">
+        <img
+          src="assets/images/logo.png"
+          alt="Irmin Tech"
+          style="height:30px;width:auto;border-radius:10px;display:block;"
+        />
+        <span>Irmin Tech</span>
+      </a>
+
+      <nav class="nav" data-nav data-open="false" aria-label="Primary navigation">
+        <a href="about.html">About</a>
+        <a href="feedstocks.html">Feedstocks</a>
+        <a href="resources.html" aria-current="page">Resources</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="header-right">
+        <button class="mobile-toggle" data-mobile-toggle aria-expanded="false" aria-label="Open menu">
+          Menu
+        </button>
+        <a class="btn btn-dark" href="contact.html">Talk to us</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-card" data-reveal>
+          <div class="hero-media" aria-hidden="true"></div>
+
+          <div class="hero-content">
+            <div>
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+                <img
+                  src="assets/images/logo.png"
+                  alt=""
+                  aria-hidden="true"
+                  style="height:26px;width:auto;border-radius:10px;box-shadow:0 10px 22px rgba(2,6,23,.10);"
+                />
+                <div class="kicker" style="margin:0;">Resources</div>
+              </div>
+
+              <h1>Short, execution-focused notes.</h1>
+              <p class="lead">
+                Practical pieces on intermediate crops, traceability, contracting, and where diligence usually concentrates in advanced biofuels value chains.
+              </p>
+
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="#library"><strong>Browse library</strong> →</a>
+                <a class="btn" href="feedstocks.html">Explore feedstocks</a>
+                <a class="btn btn-dark" href="contact.html">Talk to us</a>
+              </div>
+
+              <p class="muted small" style="margin-top:12px;">
+                Demo site: content is informational and not legal/compliance advice.
+              </p>
+            </div>
+
+            <aside class="hero-aside" aria-label="At a glance">
+              <span class="badge">What you’ll find</span>
+
+              <div class="hero-metrics">
+                <div class="metric">
+                  <b>Buyer diligence</b>
+                  <span>Specs, routing, handoffs, QC, reconciliation.</span>
+                </div>
+                <div class="metric">
+                  <b>Traceability</b>
+                  <span>Chain-of-custody thinking without buzzwords.</span>
+                </div>
+                <div class="metric">
+                  <b>Program design</b>
+                  <span>Practical intermediate crop program structure.</span>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIBRARY -->
+    <section class="section-tight" id="library">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <div>
+            <div class="kicker">Library</div>
+            <h2>Search, filter, move fast.</h2>
+            <p class="lead">Quick reads you can use in a real diligence conversation.</p>
+          </div>
+          <div>
+            <a class="btn" href="contact.html">Request a pack</a>
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls" data-reveal>
+          <div class="searchWrap" role="search" aria-label="Search resources">
+            <span aria-hidden="true" style="font-weight:900; color: rgba(15,23,42,.55);">⌕</span>
+            <input id="q" type="search" placeholder="Search resources (e.g., traceability, contracting, RED III)…" autocomplete="off" />
+          </div>
+
+          <div class="pillRow" aria-label="Filter by topic">
+            <button class="pill" type="button" data-filter="all" aria-pressed="true">All</button>
+            <button class="pill" type="button" data-filter="Feedstocks" aria-pressed="false">Feedstocks</button>
+            <button class="pill" type="button" data-filter="Traceability" aria-pressed="false">Traceability</button>
+            <button class="pill" type="button" data-filter="Contracting" aria-pressed="false">Contracting</button>
+            <button class="pill" type="button" data-filter="Operations" aria-pressed="false">Operations</button>
+            <button class="pill" type="button" data-filter="Policy" aria-pressed="false">Policy</button>
+          </div>
+        </div>
+
+        <div class="empty" id="emptyState" data-reveal>
+          <b>No results.</b>
+          <div class="muted" style="margin-top:6px;">Try a different keyword or clear the filters.</div>
+        </div>
+
+        <!-- Resources grid -->
+        <div class="grid cols-3" id="resourceGrid" style="margin-top:16px;">
+          <!-- 1 -->
+          <a class="card resource-card" href="#r-camelina-carinata" data-reveal
+             data-tags="Feedstocks,Operations"
+             data-title="Camelina vs. Carinata: what developers care about"
+             data-body="Contracting, routing, and documentation—where diligence usually concentrates.">
+            <div class="icon" aria-hidden="true">🌱</div>
+            <div class="resourceCardTitle">Camelina vs. Carinata: what developers care about</div>
+            <p class="resourceCardText">Contracting, routing, and documentation—where diligence usually concentrates.</p>
+            <div class="resourceMeta">
+              <span>Feedstocks</span><span class="dot"></span><span>5 min</span>
+            </div>
+            <div class="tags">
+              <span class="tag">Feedstocks</span><span class="tag">Operations</span>
+            </div>
+          </a>
+
+          <!-- 2 -->
+          <a class="card resource-card" href="#r-traceability-checklist" data-reveal
+             data-tags="Traceability,Operations"
+             data-title="Traceability from seed to refinery gate: a checklist"
+             data-body="A simple checklist to reduce exceptions and keep documentation clean.">
+            <div class="icon" aria-hidden="true">📍</div>
+            <div class="resourceCardTitle">Traceability from seed to refinery gate: a checklist</div>
+            <p class="resourceCardText">A simple checklist to reduce exceptions and keep documentation clean.</p>
+            <div class="resourceMeta">
+              <span>Traceability</span><span class="dot"></span><span>4 min</span>
+            </div>
+            <div class="tags">
+              <span class="tag">Traceability</span><span class="tag">Operations</span>
+            </div>
+          </a>
+
+          <!-- 3 -->
+          <a class="card resource-card" href="#r-rediii-implications" data-reveal
+             data-tags="Policy,Operations"
+             data-title="Intermediate crops under RED III: practical implications"
+             data-body="How “aligned” translates into operations and data responsibilities.">
+            <div class="icon" aria-hidden="true">🧭</div>
+            <div class="resourceCardTitle">Intermediate crops under RED III: practical implications</div>
+            <p class="resourceCardText">How “aligned” translates into operations and data responsibilities.</p>
+            <div class="resourceMeta">
+              <span>Policy</span><span class="dot"></span><span>6 min</span>
+            </div>
+            <div class="tags">
+              <span class="tag">Policy</span><span class="tag">Operations</span>
+            </div>
+          </a>
+
+          <!-- 4 -->
+          <a class="card resource-card" href="#r-contracting-basics" data-reveal
+             data-tags="Contracting,Operations"
+             data-title="Feedstock contracting: the five clauses that prevent exceptions"
+             data-body="Specs, sampling, delivery windows, title/risks, and dispute mechanics.">
+            <div class="icon" aria-hidden="true">🧾</div>
+            <div class="resourceCardTitle">Feedstock contracting: five clauses that prevent exceptions</div>
+            <p class="resourceCardText">Specs, sampling, delivery windows, title/risks, and dispute mechanics.</p>
+            <div class="resourceMeta">
+              <span>Contracting</span><span class="dot"></span><span>5 min</span>
+            </div>
+            <div class="tags">
+              <span class="tag">Contracting</span><span class="tag">Operations</span>
+            </div>
+          </a>
+
+          <!-- 5 -->
+          <a class="card resource-card" href="#r-batching-recon" data-reveal
+             data-tags="Operations,Traceability"
+             data-title="Batching & reconciliation: how to keep a chain-of-custody clean"
+             data-body="Simple practices to avoid data gaps across aggregation and processing.">
+            <div class="icon" aria-hidden="true">🧩</div>
+            <div class="resourceCardTitle">Batching & reconciliation: keep chain-of-custody clean</div>
+            <p class="resourceCardText">Simple practices to avoid data gaps across aggregation and processing.</p>
+            <div class="resourceMeta">
+              <span>Operations</span><span class="dot"></span><span>4 min</span>
+            </div>
+            <div class="tags">
+              <span class="tag">Operations</span><span class="tag">Traceability</span>
+            </div>
+          </a>
+
+          <!-- 6 -->
+          <a class="card resource-card" href="#r-qc-sampling" data-reveal
+             data-tags="Operations"
+             data-title="QC & sampling: a buyer-aligned minimum standard"
+             data-body="Sampling points, retention, and acceptance windows that reduce disputes.">
+            <div class="icon" aria-hidden="true">🧪
 
