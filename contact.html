@@ -2,185 +2,401 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact — Irmin Tech</title>
   <meta name="description" content="Talk to Irmin Tech about buying feedstocks, grower partnerships, or logistics / processing partnerships." />
 
-  <link rel="icon" href="/favicon.svg" />
-  <link rel="stylesheet" href="/assets/css/styles.css" />
-  <script defer src="/assets/js/main.js"></script>
+  <meta property="og:title" content="Contact — Irmin Tech" />
+  <meta property="og:description" content="Reach out about feedstock sourcing, partnerships, and traceability-ready execution." />
+  <meta property="og:type" content="website" />
+
+  <!-- TAB ICON (favicon) -->
+  <link rel="icon" href="assets/images/logo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/images/logo.png" />
+
+  <link rel="stylesheet" href="assets/css/irmin.css" />
+  <script defer src="assets/js/irmin.js"></script>
+
+  <!-- Small, page-local form styling (keeps premium look even if irmin.css doesn’t style inputs) -->
+  <style>
+    .form-grid{ display:grid; gap:12px; }
+    .form-two{ display:grid; grid-template-columns: 1fr 1fr; gap:12px; }
+    @media (max-width: 860px){ .form-two{ grid-template-columns: 1fr; } }
+
+    .field label{
+      display:block;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: -.01em;
+      margin-bottom: 6px;
+      color: rgba(15,23,42,.78);
+    }
+    /* If your irmin.css uses dark text on light cards, keep fields light and crisp */
+    .input, .select, .textarea{
+      width: 100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(15, 23, 42, 0.14);
+      background: rgba(255,255,255,0.95);
+      color: rgba(15, 23, 42, 0.92);
+      outline: none;
+      transition: box-shadow .15s ease, border-color .15s ease;
+      font: inherit;
+    }
+    .textarea{ min-height: 140px; resize: vertical; }
+    .input:focus, .select:focus, .textarea:focus{
+      border-color: rgba(34, 197, 94, 0.35);
+      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.10);
+    }
+    .help{
+      margin-top: 6px;
+      font-size: 12px;
+      color: rgba(15, 23, 42, 0.62);
+    }
+    .notice-demo{
+      border-radius: 16px;
+      border: 1px solid rgba(15, 23, 42, 0.10);
+      background: rgba(2, 6, 23, 0.04);
+      padding: 14px 14px;
+    }
+    .muted-inline{ color: rgba(15, 23, 42, 0.62); font-weight: 600; font-size: 12px; }
+  </style>
 </head>
 
 <body>
-  <a class="skip" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="header">
-    <div class="container header__inner">
-      <a class="brand" href="/">
-        <span class="brand__mark">IT</span>
-        <span class="brand__name">Irmin Tech</span>
+  <!-- MATCHES HOME HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Irmin Tech home" style="gap:12px;">
+        <img
+          src="assets/images/logo.png"
+          alt="Irmin Tech"
+          style="height:30px;width:auto;border-radius:10px;display:block;"
+        />
+        <span>Irmin Tech</span>
       </a>
 
-      <nav class="nav" aria-label="Primary">
-        <a href="/" data-nav="/">Home</a>
-        <a href="/about.html" data-nav="/about.html">About</a>
-        <a href="/feedstocks.html" data-nav="/feedstocks.html">Feedstocks</a>
-        <a href="/resources.html" data-nav="/resources.html">Resources</a>
-        <a href="/contact.html" data-nav="/contact.html">Contact</a>
+      <nav class="nav" data-nav data-open="false" aria-label="Primary navigation">
+        <a href="about.html">About</a>
+        <a href="feedstocks.html">Feedstocks</a>
+        <a href="resources.html">Resources</a>
+        <a href="contact.html" aria-current="page">Contact</a>
       </nav>
 
-      <div class="header__cta">
-        <a class="btn btn--outline" href="/feedstocks.html">Explore Feedstocks</a>
-        <a class="btn" href="/contact.html">Talk to us</a>
-      </div>
-
-      <button class="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
-    </div>
-
-    <div class="mobileNav" hidden>
-      <div class="container">
-        <a href="/">Home</a>
-        <a href="/about.html">About</a>
-        <a href="/feedstocks.html">Feedstocks</a>
-        <a href="/resources.html">Resources</a>
-        <a href="/contact.html">Contact</a>
+      <div class="header-right">
+        <button class="mobile-toggle" data-mobile-toggle aria-expanded="false" aria-label="Open menu">
+          Menu
+        </button>
+        <a class="btn btn-dark" href="contact.html">Talk to us</a>
       </div>
     </div>
   </header>
 
   <main id="main">
-    <section class="section">
+    <!-- HERO (PREMIUM, LIKE HOME) -->
+    <section class="hero">
       <div class="container">
-        <div class="prose">
-          <div class="kicker">Contact</div>
-          <h1 class="h1" style="font-size: clamp(2rem, 3vw, 2.6rem);">Talk to us</h1>
-          <p class="muted" style="margin-top:14px;">
-            Share what you’re evaluating and we’ll respond with a practical next step.
-            (Demo site: this form shows a local success message and does not send email yet.)
-          </p>
+        <div class="hero-card">
+          <div class="hero-media" aria-hidden="true"></div>
+
+          <div class="hero-content">
+            <div>
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+                <img
+                  src="assets/images/logo.png"
+                  alt=""
+                  aria-hidden="true"
+                  style="height:26px;width:auto;border-radius:10px;box-shadow:0 10px 22px rgba(2,6,23,.10);"
+                />
+                <div class="kicker" style="margin:0;">Contact</div>
+              </div>
+
+              <h1>Tell us what you’re evaluating.</h1>
+              <p class="lead">
+                Share your target corridor, timeline, and what “good” looks like for specs and documentation.
+                We’ll respond with a practical next step.
+              </p>
+
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="#form"><strong>Send a message</strong> →</a>
+                <a class="btn" href="feedstocks.html">Explore feedstocks</a>
+              </div>
+
+              <p class="muted small" style="margin-top:12px;">
+                Demo site: the form shows a local success message and does not send email yet.
+              </p>
+            </div>
+
+            <aside class="hero-aside" aria-label="At a glance">
+              <span class="badge">Fast alignment</span>
+
+              <div class="hero-metrics">
+                <div class="metric">
+                  <b>Use case</b>
+                  <span>SAF / renewable fuels value chain needs.</span>
+                </div>
+                <div class="metric">
+                  <b>Footprint</b>
+                  <span>Germany · Romania · Kazakhstan</span>
+                </div>
+                <div class="metric">
+                  <b>Contact</b>
+                  <span><a href="mailto:info@irmintech.com">info@irmintech.com</a></span>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORM + DETAILS -->
+    <section class="section-tight" id="form">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="kicker">Message</div>
+            <h2>Structured inputs → faster response.</h2>
+            <p class="lead">
+              If you provide the corridor, timeline, and documentation expectations, we can move immediately to a scoped engagement path.
+            </p>
+          </div>
         </div>
 
-        <div class="divider"></div>
-
-        <div class="grid2">
+        <div class="grid cols-2">
+          <!-- FORM CARD -->
           <div class="card">
-            <div class="card__padLg">
-              <form data-contact-form novalidate>
-                <div class="formTwo">
-                  <div>
-                    <label class="label" for="firstName">First name</label>
-                    <input class="input" id="firstName" name="firstName" autocomplete="given-name" />
-                    <div class="error" data-error data-error-for="firstName"></div>
+            <div style="padding:18px;">
+              <h3 style="margin:0 0 10px;">Send a message</h3>
+              <p class="muted" style="margin:0 0 14px;">
+                We’ll reply with next steps and any clarifying questions.
+              </p>
+
+              <form id="contactForm" class="form-grid" novalidate>
+                <div class="form-two">
+                  <div class="field">
+                    <label for="firstName">First name</label>
+                    <input class="input" id="firstName" name="firstName" autocomplete="given-name" required />
+                    <div class="help" id="err-firstName" aria-live="polite"></div>
                   </div>
-                  <div>
-                    <label class="label" for="lastName">Last name</label>
-                    <input class="input" id="lastName" name="lastName" autocomplete="family-name" />
-                    <div class="error" data-error data-error-for="lastName"></div>
+
+                  <div class="field">
+                    <label for="lastName">Last name</label>
+                    <input class="input" id="lastName" name="lastName" autocomplete="family-name" required />
+                    <div class="help" id="err-lastName" aria-live="polite"></div>
                   </div>
                 </div>
 
-                <div style="margin-top:14px;">
-                  <label class="label" for="email">Email</label>
-                  <input class="input" id="email" name="email" autocomplete="email" />
-                  <div class="error" data-error data-error-for="email"></div>
+                <div class="field">
+                  <label for="email">Email</label>
+                  <input class="input" id="email" name="email" type="email" autocomplete="email" required />
+                  <div class="help" id="err-email" aria-live="polite"></div>
                 </div>
 
-                <div style="margin-top:14px;">
-                  <label class="label" for="company">Company <span class="muted small">(optional)</span></label>
-                  <input class="input" id="company" name="company" autocomplete="organization" />
+                <div class="form-two">
+                  <div class="field">
+                    <label for="company">Company <span class="muted-inline">(optional)</span></label>
+                    <input class="input" id="company" name="company" autocomplete="organization" />
+                  </div>
+
+                  <div class="field">
+                    <label for="interest">Interest</label>
+                    <select class="select" id="interest" name="interest" required>
+                      <option value="">Select…</option>
+                      <option>Buying feedstocks</option>
+                      <option>Grower partnership</option>
+                      <option>Logistics / processing partnership</option>
+                      <option>Press</option>
+                      <option>Other</option>
+                    </select>
+                    <div class="help" id="err-interest" aria-live="polite"></div>
+                  </div>
                 </div>
 
-                <div style="margin-top:14px;">
-                  <label class="label" for="interest">Interest</label>
-                  <select class="select" id="interest" name="interest">
-                    <option value="">Select…</option>
-                    <option>Buying feedstocks</option>
-                    <option>Grower partnership</option>
-                    <option>Logistics / processing partnership</option>
-                    <option>Press</option>
-                    <option>Other</option>
-                  </select>
-                  <div class="error" data-error data-error-for="interest"></div>
+                <div class="form-two">
+                  <div class="field">
+                    <label for="corridor">Corridor <span class="muted-inline">(optional)</span></label>
+                    <input class="input" id="corridor" name="corridor" placeholder="e.g., Germany → refinery gate" />
+                    <div class="help">Geography + delivery corridor helps us scope routing.</div>
+                  </div>
+
+                  <div class="field">
+                    <label for="timeline">Timeline <span class="muted-inline">(optional)</span></label>
+                    <input class="input" id="timeline" name="timeline" placeholder="e.g., Q2–Q3 2026" />
+                    <div class="help">Even a rough window is fine.</div>
+                  </div>
                 </div>
 
-                <div style="margin-top:14px;">
-                  <label class="label" for="message">Message</label>
-                  <textarea class="textarea" id="message" name="message" placeholder="Tell us what you’re evaluating, geography, and timeline…"></textarea>
-                  <div class="error" data-error data-error-for="message"></div>
+                <div class="field">
+                  <label for="message">Message</label>
+                  <textarea
+                    class="textarea"
+                    id="message"
+                    name="message"
+                    placeholder="Tell us what you’re evaluating: volumes (if known), corridor, timeline, and documentation expectations…"
+                    required
+                  ></textarea>
+                  <div class="help" id="err-message" aria-live="polite"></div>
                 </div>
 
-                <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
-                  <button class="btn" type="submit">Send message</button>
-                  <a class="btn btn--outline" href="/feedstocks.html">Explore Feedstocks</a>
+                <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:2px;">
+                  <button class="btn btn-primary" type="submit"><strong>Send message</strong> →</button>
+                  <a class="btn" href="feedstocks.html">Explore feedstocks</a>
+                </div>
+
+                <div id="successBox" class="notice-demo" hidden style="margin-top:12px;">
+                  <b>Message received (demo).</b>
+                  <div class="muted" style="margin-top:6px;">
+                    Thanks — we’ll follow up via email. (This demo does not send messages yet.)
+                  </div>
                 </div>
               </form>
-
-              <div class="notice" data-contact-success hidden style="margin-top:14px;">
-                <b style="color:var(--text);">Message received (demo).</b><br/>
-                Thanks — we’ll follow up via email. (This demo does not send messages yet.)
-              </div>
             </div>
           </div>
 
+          <!-- DETAILS CARD -->
           <div class="card">
-            <div class="card__padLg">
-              <div class="h3">Contact details</div>
-              <p class="muted" style="margin-top:8px;">Email: <a href="mailto:info@irmintech.com">info@irmintech.com</a></p>
+            <div style="padding:18px;">
+              <h3 style="margin:0 0 10px;">Contact details</h3>
+              <p class="muted" style="margin:0 0 12px;">
+                Email: <a href="mailto:info@irmintech.com">info@irmintech.com</a>
+              </p>
 
               <div class="divider"></div>
 
-              <div class="h3">Footprint</div>
-              <ul class="cardList">
-                <li>Germany</li>
-                <li>Bucharest (Romania)</li>
-                <li>Kazakhstan</li>
-              </ul>
+              <h3 style="margin:0 0 10px;">Footprint</h3>
+              <div class="tags" style="margin-top:10px;">
+                <span class="tag">Germany</span>
+                <span class="tag">Romania</span>
+                <span class="tag">Kazakhstan</span>
+              </div>
 
               <div class="divider"></div>
 
-              <div class="h3">What to include</div>
-              <ul class="cardList">
+              <h3 style="margin:0 0 10px;">What to include</h3>
+              <ul class="bullets" style="margin-top:10px;">
                 <li>Intended use case (SAF / renewable fuels value chain)</li>
                 <li>Geography and delivery corridor</li>
                 <li>Timeline and decision path</li>
                 <li>Documentation expectations where applicable</li>
               </ul>
+
+              <div class="divider"></div>
+
+              <div class="notice-demo">
+                <b>Want this to actually send email?</b>
+                <div class="muted" style="margin-top:6px;">
+                  Easiest on GitHub Pages: connect the form to Formspree / Getform and replace the demo handler.
+                </div>
+              </div>
             </div>
           </div>
-
         </div>
 
       </div>
     </section>
+
+    <!-- CTA BAND (MATCHES HOME) -->
+    <section class="cta-band">
+      <div class="container cta-inner">
+        <div>
+          <div class="kicker">Next step</div>
+          <h2 style="margin:10px 0 0;">Scope the corridor. Define the spec. Execute.</h2>
+          <p class="lead" style="margin-top:10px;">
+            If you’re assessing intermediate crops for SAF / renewable fuels, we’ll align on requirements and propose a clean engagement path.
+          </p>
+        </div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn btn-primary" href="#form"><strong>Send a message</strong> →</a>
+          <a class="btn btn-dark" href="feedstocks.html">Explore feedstocks</a>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer__inner">
+  <!-- MATCHES HOME FOOTER -->
+  <footer>
+    <div class="container footer-grid">
       <div>
-        <div class="footer__title">Irmin Tech</div>
-        <div class="footer__muted">
+        <div style="font-weight:900; letter-spacing:-.02em;">Irmin Tech</div>
+        <p class="muted" style="margin:10px 0 0;">
           Second-generation renewable feedstock supply focused on intermediate crops and traceability-ready execution.
+        </p>
+      </div>
+
+      <div>
+        <div style="font-weight:900;">Footprint</div>
+        <div class="footer-links">
+          <a href="#" onclick="return false;">Germany</a>
+          <a href="#" onclick="return false;">Romania</a>
+          <a href="#" onclick="return false;">Kazakhstan</a>
         </div>
       </div>
 
       <div>
-        <div class="footer__title">Footprint</div>
-        <ul class="footer__list">
-          <li>Germany</li>
-          <li>Bucharest (Romania)</li>
-          <li>Kazakhstan</li>
-        </ul>
-      </div>
-
-      <div>
-        <div class="footer__title">Email</div>
-        <a class="footer__link" href="mailto:info@irmintech.com">info@irmintech.com</a>
+        <div style="font-weight:900;">Contact</div>
+        <div class="footer-links">
+          <a href="mailto:info@irmintech.com">info@irmintech.com</a>
+          <a href="contact.html">Contact form</a>
+        </div>
       </div>
     </div>
 
-    <div class="container footer__bottom">
-      © <span id="year"></span> Irmin Tech. All rights reserved.
+    <div class="container" style="margin-top:18px; padding-top:18px; border-top:1px solid rgba(15, 23, 42, 0.10);">
+      <span class="muted small">© <span data-year></span> Irmin Tech. All rights reserved.</span>
     </div>
   </footer>
+
+  <!-- DEMO-ONLY: local validation + success message (no send) -->
+  <script>
+    (function () {
+      const form = document.getElementById("contactForm");
+      const success = document.getElementById("successBox");
+
+      const setErr = (id, msg) => {
+        const el = document.getElementById("err-" + id);
+        if (!el) return;
+        el.textContent = msg || "";
+      };
+
+      const isEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v || "").trim());
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        success.hidden = true;
+
+        const firstName = form.firstName.value.trim();
+        const lastName = form.lastName.value.trim();
+        const email = form.email.value.trim();
+        const interest = form.interest.value.trim();
+        const message = form.message.value.trim();
+
+        let ok = true;
+
+        setErr("firstName", "");
+        setErr("lastName", "");
+        setErr("email", "");
+        setErr("interest", "");
+        setErr("message", "");
+
+        if (!firstName) { setErr("firstName", "Please enter your first name."); ok = false; }
+        if (!lastName) { setErr("lastName", "Please enter your last name."); ok = false; }
+        if (!email || !isEmail(email)) { setErr("email", "Please enter a valid email address."); ok = false; }
+        if (!interest) { setErr("interest", "Please select an interest."); ok = false; }
+        if (!message || message.length < 10) { setErr("message", "Please add a short message (10+ characters)."); ok = false; }
+
+        if (!ok) return;
+
+        // Demo: show success and reset
+        success.hidden = false;
+        form.reset();
+
+        // Optional: scroll to success message for mobile
+        success.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+    })();
+  </script>
 </body>
 </html>
